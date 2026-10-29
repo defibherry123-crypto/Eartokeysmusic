@@ -19,7 +19,7 @@ test('only admins can manage catalogue images', async t => {
 });
 test('uploaded course, resource and featured images are publicly readable', async t => {
   const h = await boot(); t.after(h.close); const admin = await h.makeUser('images-admin@test.test', 'admin');
-  assert.equal((await h.api('GET', '/api/admin/images', { token: admin.token })).body.images.length, 23);
+  assert.equal((await h.api('GET', '/api/admin/images', { token: admin.token })).body.images.length, 26);
   for (const target of ['course/1','resource/1','feature/chopin','feature/anatomy','feature/drills']) {
     assert.equal((await upload(h, admin.token, target)).status, 200);
     const image = await h.api('GET', `/api/images/${target}`);
@@ -74,5 +74,15 @@ test('About page hero and all four team portraits can be managed through the ima
   for (const key of keys) assert.equal((await upload(h, admin.token, 'feature/' + key)).status, 200);
   const images = (await h.api('GET', '/api/images')).body.images;
   assert.equal(images.length, 5);
+  assert.deepEqual(images.map(x => x.target).sort(), keys.sort());
+});
+
+test('Founder page banner and both gallery images have separate admin-managed slots', async t => {
+  const h = await boot(); t.after(h.close);
+  const admin = await h.makeUser('founder-images@test.test', 'admin');
+  const keys = ['founder-banner', 'founder-practice', 'founder-studio'];
+  for (const key of keys) assert.equal((await upload(h, admin.token, 'feature/' + key)).status, 200);
+  const images = (await h.api('GET', '/api/images')).body.images;
+  assert.equal(images.length, 3);
   assert.deepEqual(images.map(x => x.target).sort(), keys.sort());
 });
