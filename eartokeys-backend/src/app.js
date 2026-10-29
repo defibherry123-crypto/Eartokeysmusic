@@ -21,7 +21,7 @@ function createApp(overrides = {}) {
   ctx.mailer = overrides.mailer || createMailer(ctx);
 
   const router = createRouter();
-  for (const m of ['auth', 'catalog', 'billing', 'studio', 'admin', 'images']) require(`./routes/${m}`)(router);
+  for (const m of ['auth', 'catalog', 'billing', 'studio', 'admin', 'images', 'testimonials']) require(`./routes/${m}`)(router);
 
   const server = http.createServer(handler(ctx, router));
   server.requestTimeout = 0;      // large video uploads can take a long time

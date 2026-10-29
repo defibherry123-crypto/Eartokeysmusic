@@ -129,6 +129,12 @@ CREATE TABLE IF NOT EXISTS resources (
   featured INTEGER NOT NULL DEFAULT 0,
   published INTEGER NOT NULL DEFAULT 1
 );
+CREATE TABLE IF NOT EXISTS testimonial_videos (
+  target TEXT PRIMARY KEY,
+  file_name TEXT NOT NULL,
+  mime TEXT NOT NULL,
+  size_bytes INTEGER NOT NULL
+);
 CREATE TABLE IF NOT EXISTS catalogue_images (
   kind TEXT NOT NULL CHECK (kind IN ('course','resource','feature')),
   target TEXT NOT NULL,

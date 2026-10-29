@@ -5,7 +5,8 @@ const { HttpError, int, oneOf } = require('../util');
 const { saveUpload, sendFile } = require('../media');
 const { HANDLED } = require('../http');
 
-const FEATURES = { chopin: 'Chopin’s Complete Nocturnes', anatomy: 'The Anatomy of a Grand Piano', drills: 'Daily Finger Independence' };
+const { TESTIMONIALS, videoUrl } = require('../testimonials');
+const FEATURES = { chopin: 'Chopin’s Complete Nocturnes', anatomy: 'The Anatomy of a Grand Piano', drills: 'Daily Finger Independence', ...TESTIMONIALS };
 const TYPES = {
   'image/png': { ext: 'png', ok: b => b.subarray(0, 8).equals(Buffer.from('89504e470d0a1a0a', 'hex')) },
   'image/jpeg': { ext: 'jpg', ok: b => b[0] === 0xff && b[1] === 0xd8 && b[2] === 0xff },
@@ -31,9 +32,10 @@ function targets(ctx, publicOnly = false) {
 module.exports = r => {
   r.get('/api/images', { auth: 'none' }, ({ ctx }) => ({ images: targets(ctx, true).flatMap(t => {
     const row = imageRow(ctx, t.kind, t.target);
-    return row ? [{ ...t, imageUrl: imageUrl(row) }] : [];
+    const video = t.kind === 'feature' ? videoUrl(ctx, t.target) : null;
+    return row || video ? [{ ...t, imageUrl: imageUrl(row), videoUrl: video }] : [];
   }) }));
-  r.get('/api/admin/images', { auth: 'admin' }, ({ ctx }) => ({ images: targets(ctx).map(t => ({ ...t, imageUrl: imageUrl(imageRow(ctx, t.kind, t.target), true) })) }));
+  r.get('/api/admin/images', { auth: 'admin' }, ({ ctx }) => ({ images: targets(ctx).map(t => ({ ...t, imageUrl: imageUrl(imageRow(ctx, t.kind, t.target), true), videoUrl: t.kind === 'feature' ? videoUrl(ctx, t.target) : null })) }));
   const serve = (admin) => ({ ctx, req, res, params }) => {
     const t = targetFor(ctx, params, !admin), row = imageRow(ctx, t.kind, t.target);
     if (!row) throw new HttpError(404, 'image_not_found', 'Image not uploaded yet.');
