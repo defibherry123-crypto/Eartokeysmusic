@@ -19,7 +19,7 @@ test('only admins can manage catalogue images', async t => {
 });
 test('uploaded course, resource and featured images are publicly readable', async t => {
   const h = await boot(); t.after(h.close); const admin = await h.makeUser('images-admin@test.test', 'admin');
-  assert.equal((await h.api('GET', '/api/admin/images', { token: admin.token })).body.images.length, 18);
+  assert.equal((await h.api('GET', '/api/admin/images', { token: admin.token })).body.images.length, 23);
   for (const target of ['course/1','resource/1','feature/chopin','feature/anatomy','feature/drills']) {
     assert.equal((await upload(h, admin.token, target)).status, 200);
     const image = await h.api('GET', `/api/images/${target}`);
@@ -65,4 +65,14 @@ test('image registry survives SQLite reopen and schema initialization is repeata
   const h = await boot(); t.after(h.close); const file = path.join(h.ctx.config.storageDir, 'migration.db');
   let db = openDb(file); db.prepare('INSERT INTO catalogue_images VALUES (?,?,?,?,?)').run('feature','chopin','example.png','image/png',PNG.length); db.close();
   db = openDb(file); assert.equal(db.prepare('SELECT file_name FROM catalogue_images').get().file_name, 'example.png'); db.close();
+});
+
+test('About page hero and all four team portraits can be managed through the image API', async t => {
+  const h = await boot(); t.after(h.close);
+  const admin = await h.makeUser('about-images@test.test', 'admin');
+  const keys = ['about-piano', 'team-joshua', 'team-elina', 'team-marcus', 'team-unwana'];
+  for (const key of keys) assert.equal((await upload(h, admin.token, 'feature/' + key)).status, 200);
+  const images = (await h.api('GET', '/api/images')).body.images;
+  assert.equal(images.length, 5);
+  assert.deepEqual(images.map(x => x.target).sort(), keys.sort());
 });

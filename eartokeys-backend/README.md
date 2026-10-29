@@ -39,6 +39,8 @@ Still prototype-only (kept in the browser's localStorage, no backend yet): Commu
 
 Sign in as an admin and open **Product images** in the dashboard (`#/admin/images`). Upload or replace JPG, PNG, or WebP pictures up to 5 MB for course covers, resource cards, and the three featured library panels. The gallery shows previews and a remove option. Uploaded course covers appear on the landing page, course listing, and course details; resource and featured images appear in the library after refreshing or navigating to it.
 
+**About & team:** choose this filter in Product images to upload the About page piano picture and portraits for Joshua Rapheal, Elina Chris, Marcus Ubon, and Unwana Berry. Portraits are displayed in black and white to match the About design. Until pictures are uploaded, team cards show initials; the founder can also use the existing local `public/assets/founder.png` as a fallback.
+
 **Testimonials:** in Product images, choose the Testimonials filter to upload a picture and a performance video for Cindy E., Haifeng Xue, or Nayelie. Videos support MP4, WebM, and MOV up to 100 MB. Preview, replace, or remove videos from the same card. The public Testimonials page plays uploaded performances in a dialog with video controls. Original student media is not included; until uploaded, the play button shows a missing-video message. Videos are stored in `storage/testimonials/` and recorded in SQLite.
 
 Pictures and downloadable resources are separate: use **Resources** to add a resource and upload its PDF, MIDI, or ZIP file; use **Product images** for its picture. Add new courses through the existing course-management workflow; they then appear in the image gallery. Featured download files use the matching titles shown on the library page.
