@@ -1,0 +1,9 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "Setup (seed + demo data)", "type": "npm", "script": "setup", "problemMatcher": [] },
+    { "label": "Start server", "type": "npm", "script": "start", "isBackground": true, "problemMatcher": [] },
+    { "label": "Run tests", "type": "npm", "script": "test", "group": "test", "problemMatcher": [] },
+    { "label": "Reset data", "type": "npm", "script": "reset", "problemMatcher": [] }
+  ]
+}
