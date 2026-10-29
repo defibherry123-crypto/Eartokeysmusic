@@ -35,6 +35,14 @@ Still prototype-only (kept in the browser's localStorage, no backend yet): Commu
 
 ---
 
+## Admin image uploads
+
+Sign in as an admin and open **Product images** in the dashboard (`#/admin/images`). Upload or replace JPG, PNG, or WebP pictures up to 5 MB for course covers, resource cards, and the three featured library panels. The gallery shows previews and a remove option. Uploaded course covers appear on the landing page, course listing, and course details; resource and featured images appear in the library after refreshing or navigating to it.
+
+Pictures and downloadable resources are separate: use **Resources** to add a resource and upload its PDF, MIDI, or ZIP file; use **Product images** for its picture. Add new courses through the existing course-management workflow; they then appear in the image gallery. Featured download files use the matching titles shown on the library page.
+
+Images are stored in `storage/images/`, with metadata in SQLite. Back up both `data/` and `storage/`; they must be on persistent storage in production. The image table is created automatically on startup, preserving existing accounts, courses, and files. Admin access is required to upload or remove images; public thumbnail access is limited to published courses/resources and the featured panels.
+
 ## Backend reference
 
 Accounts, Paystack subscriptions with a **7-day grace period**, and **protected video streaming** for the EarToKeysMusic platform.
