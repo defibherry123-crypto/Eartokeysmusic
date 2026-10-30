@@ -6,11 +6,11 @@ const { LEVELS } = require('../plans');
 const { reply } = require('../http');
 
 module.exports = (r) => {
-  const sessionReply = (ctx, req, user, status = 200) => {
+  const sessionReply = (ctx, req, user, status = 200, remember = true) => {
     const token = A.createSession(ctx, user.id, req);
     const out = { user: A.publicUser(user), access: getAccess(ctx, user.id) };
     if (String(req.headers['x-auth-mode']).toLowerCase() === 'bearer') out.token = token; // for mobile apps / separate-domain sites
-    return reply(status, out, { 'Set-Cookie': A.cookieHeader(ctx, token, ctx.config.sessionDays * 86400) });
+    return reply(status, out, { 'Set-Cookie': remember ? A.cookieHeader(ctx, token, ctx.config.sessionDays * 86400) : A.cookieHeader(ctx, token, ctx.config.sessionDays * 86400).replace(/; Max-Age=\d+/, '') });
   };
 
   async function register({ ctx, req, body }, role) {
@@ -39,7 +39,7 @@ module.exports = (r) => {
     const pw = String(body.password ?? '').slice(0, 200);
     const ok = user ? await A.verifyPassword(pw, user.password_hash) : (await A.fakeVerify(pw), false);
     if (!ok || user.disabled) throw new HttpError(401, 'invalid_credentials', 'Email or password is incorrect.');
-    return sessionReply(ctx, req, user);
+    return sessionReply(ctx, req, user, 200, body.remember !== false);
   });
 
   r.post('/api/auth/logout', { auth: 'optional' }, ({ ctx, user }) => {

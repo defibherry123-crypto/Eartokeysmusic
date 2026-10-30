@@ -300,9 +300,9 @@ async function loadCatalogImages(){S.catalogImages=(await ETK.call("GET","/api/i
 const imageFor=(kind,target)=>(S.catalogImages||[]).find(x=>x.kind===kind&&x.target===String(target))?.imageUrl;
 const uploadedPhoto=(url,cls="catalog-uploaded-image")=>url?`<img class="${cls}" src="${esc(url)}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.remove()">`:'';
 const coursePhoto=slug=>uploadedPhoto((S.catalogImages||[]).find(x=>x.kind==='course'&&x.slug===slug)?.imageUrl);
-const IMAGE_GROUPS={feature:['chopin','anatomy','drills'],testimonials:['cindy','haifeng','nayelie'],about:['about-piano','team-joshua','team-elina','team-marcus','team-unwana'],founder:['founder-banner','founder-practice','founder-studio'],legal:['terms-piano','privacy-studio'],blog:['blog-masterclass','blog-method','blog-studio','blog-covers']};
+const IMAGE_GROUPS={account:['auth-login','auth-signup'],feature:['chopin','anatomy','drills'],testimonials:['cindy','haifeng','nayelie'],about:['about-piano','team-joshua','team-elina','team-marcus','team-unwana'],founder:['founder-banner','founder-practice','founder-studio'],legal:['terms-piano','privacy-studio'],blog:['blog-masterclass','blog-method','blog-studio','blog-covers']};
 const imageGroup=x=>x.kind!=='feature'?x.kind:Object.keys(IMAGE_GROUPS).find(key=>IMAGE_GROUPS[key].includes(x.target))||'feature';
-const IMAGE_GROUP_LABELS={course:'Course cover',resource:'Resource',feature:'Featured panel',testimonials:'Testimonial',about:'About & team',founder:'Founder page',legal:'Legal page',blog:'Blog image'};
+const IMAGE_GROUP_LABELS={account:'Account pages',course:'Course cover',resource:'Resource',feature:'Featured panel',testimonials:'Testimonial',about:'About & team',founder:'Founder page',legal:'Legal page',blog:'Blog image'};
 let imageFilter="all",imageBusy=false;
 async function loadRes(){S.pubres=(await ETK.resources()).resources}
 async function loadHist(){const d=await ETK.billingHistory();S.hist=d.payments;setAccess(d.access)}
@@ -568,5 +568,6 @@ async function nav(quiet){
   if(a=="securing")pollPay(Q.get("reference"))
 }
 addEventListener("hashchange",()=>{scrollTo(0,0);nav()});
+</script><link rel="stylesheet" href="/student-ui.css"><script src="/student-ui.js"></script><script>
 (async()=>{try{await loadPlans()}catch(e){}nav()})();
 </script></body></html>

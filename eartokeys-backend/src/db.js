@@ -154,6 +154,11 @@ CREATE TABLE IF NOT EXISTS support_messages (
   status TEXT NOT NULL DEFAULT 'open',
   created_at INTEGER NOT NULL
 );
+CREATE TABLE IF NOT EXISTS student_profiles (
+  user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+  bio TEXT NOT NULL DEFAULT '', avatar_file TEXT, avatar_mime TEXT,
+  preferences TEXT NOT NULL DEFAULT '{}'
+);
 CREATE TABLE IF NOT EXISTS audit_log (
   id INTEGER PRIMARY KEY,
   actor_id INTEGER, action TEXT NOT NULL, target TEXT, detail TEXT,
