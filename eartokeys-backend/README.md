@@ -35,6 +35,14 @@ Still prototype-only (kept in the browser's localStorage, no backend yet): Commu
 
 ---
 
+## Account, checkout, and dashboard screens
+
+Account screens (student/instructor sign-in and registration, verification, password reset, skill selection, plans, checkout and payment status) and student/instructor/admin dashboards share the same public-site colors and typography. Mobile layouts keep navigation scrollable and wide tables inside their own scroll area. Sign-in, signup and reset forms support normal Enter-key submission, required-field validation, inline server errors and duplicate-submit protection.
+
+Registration through verification, an annual mock checkout, video playback/completion, password reset, instructor approval, and actual course/video publishing were checked end to end. Payments are still mock payments unless Paystack is configured; verification/reset emails still use the existing mailer described below.
+
+Community, bookings, performance submissions/reviews, instructor rosters, studio demo metrics, and the onboarding profile fields remain prototypes. Their preview notices distinguish them from the real authentication, access, lesson, resource, image-upload, support and newsletter records. This visual update does not connect booking, review, broadcast or messaging services.
+
 ## Blog and newsletter
 
 The Blog page (`#/blog`) keeps the original featured masterclass, student highlight, live-session panel, article category filters, and newsletter form. Original Blog pictures can be uploaded through **Product images > Blog** in the admin dashboard.
