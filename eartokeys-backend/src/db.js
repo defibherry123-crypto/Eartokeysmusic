@@ -159,6 +159,28 @@ CREATE TABLE IF NOT EXISTS student_profiles (
   bio TEXT NOT NULL DEFAULT '', avatar_file TEXT, avatar_mime TEXT,
   preferences TEXT NOT NULL DEFAULT '{}'
 );
+CREATE TABLE IF NOT EXISTS instructor_profiles (
+ user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+ details TEXT NOT NULL DEFAULT '{}', completed_at INTEGER, updated_at INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS instructor_student_notes (
+ instructor_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+ student_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+ note TEXT NOT NULL DEFAULT '', updated_at INTEGER NOT NULL,
+ PRIMARY KEY (instructor_id,student_id)
+);
+CREATE TABLE IF NOT EXISTS lesson_settings (
+ lesson_id INTEGER PRIMARY KEY REFERENCES lessons(id) ON DELETE CASCADE,
+ details TEXT NOT NULL DEFAULT '{}'
+);
+CREATE TABLE IF NOT EXISTS course_settings (
+ course_id INTEGER PRIMARY KEY REFERENCES courses(id) ON DELETE CASCADE,
+ details TEXT NOT NULL DEFAULT '{}'
+);
+CREATE TABLE IF NOT EXISTS resource_owners (
+ resource_id INTEGER PRIMARY KEY REFERENCES resources(id) ON DELETE CASCADE,
+ user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
+);
 CREATE TABLE IF NOT EXISTS audit_log (
   id INTEGER PRIMARY KEY,
   actor_id INTEGER, action TEXT NOT NULL, target TEXT, detail TEXT,

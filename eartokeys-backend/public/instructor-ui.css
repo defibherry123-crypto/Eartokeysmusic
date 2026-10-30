@@ -1,0 +1,3583 @@
+/* Faculty workspace and onboarding reference layouts. */
+.workspace-ui:has(.instructor-shell),
+.workspace-ui:has(.iu-onboard),
+.workspace-ui:has(.iu-auth) {
+  --o: #ff7410;
+  --od: #a54800;
+  --ink: #242321;
+  --line: #eeddd1;
+  --mut: #756a64;
+  background: #fbf8f7;
+  min-height: 100vh;
+  color: #242321;
+  font:
+    15px/1.55 Arial,
+    sans-serif;
+}
+.workspace-ui .instructor-shell {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  min-height: 100vh;
+}
+.workspace-ui .instructor-sidebar {
+  padding: 30px 18px 18px;
+  background: #fbf8f7;
+  border-right: 1px solid #e9c7af;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  min-width: 0;
+  gap: 0;
+}
+.workspace-ui .iu-logo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #222;
+  font:
+    600 27px/1.2 "Testimonial Garamond",
+    Georgia,
+    serif;
+}
+.workspace-ui .iu-logo b {
+  color: #ad4f00;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1;
+}
+.workspace-ui .instructor-sidebar .iu-logo {
+  color: #ff7410;
+  font-size: 21px;
+}
+.workspace-ui .instructor-sidebar > p {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #99877d;
+  margin: 16px 8px 42px;
+}
+.workspace-ui .instructor-sidebar nav {
+  position: static;
+  background: none;
+  border: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.workspace-ui .instructor-sidebar nav a,
+.workspace-ui .iu-sidebar-bottom > a:not(.btn) {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #674e3f;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  padding: 10px 7px;
+  text-decoration: none;
+}
+.workspace-ui .instructor-sidebar nav a.active {
+  color: #ff7410;
+}
+.workspace-ui .instructor-sidebar nav a:hover {
+  background: #fff1e7;
+  border-radius: 8px;
+}
+.workspace-ui .su-icon,
+.iu-dialog .su-icon {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+.workspace-ui .iu-sidebar-bottom {
+  margin-top: auto;
+  padding-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.workspace-ui .iu-sidebar-divider {
+  height: 1px;
+  background: #e9c7af;
+  margin: 12px 0;
+}
+.workspace-ui .iu-instructor-id span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.workspace-ui .iu-instructor-id b {
+  font-size: 13px;
+}
+.workspace-ui .iu-instructor-id small {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #a18a7b;
+  font-weight: 400;
+}
+.workspace-ui .iu-signout {
+  border: 0;
+  background: none;
+  font-size: 10px;
+  color: #9d8d81;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  margin-left: 8px;
+}
+.workspace-ui .iu-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e7ded8;
+  color: #77523c;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font:
+    600 22px Georgia,
+    serif;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.workspace-ui .instructor-main {
+  min-width: 0;
+  background: #f8f4f2;
+}
+.workspace-ui .iu-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  min-height: 70px;
+  padding: 12px 25px;
+  border-bottom: 1px solid #e6c4ac;
+  background: #fffdfc;
+  box-sizing: border-box;
+}
+.workspace-ui .iu-top h2 {
+  font:
+    400 20px "Testimonial Garamond",
+    Georgia,
+    serif;
+}
+.workspace-ui .iu-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: auto;
+}
+.workspace-ui .iu-top-actions > .btn {
+  padding: 9px 15px;
+  min-height: 0;
+  font-size: 12px;
+}
+.workspace-ui label.iu-search {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  max-width: 420px;
+  background: #f7f3f1;
+  border: 1px solid #e7c8b5;
+  border-radius: 30px;
+  padding: 0 15px;
+  flex: 1;
+}
+.workspace-ui .iu-search input {
+  border: 0 !important;
+  outline-offset: 3px;
+  background: transparent;
+  padding: 8px 0;
+  width: 100%;
+  margin: 0;
+}
+.workspace-ui .iu-content {
+  padding: 55px 6%;
+  max-width: 1500px;
+  margin: auto;
+}
+.workspace-ui .instructor-main h1,
+.workspace-ui .iu-onboard h1,
+.workspace-ui .iu-auth h1 {
+  font:
+    400 35px/1.2 "Testimonial Garamond",
+    Georgia,
+    serif;
+  color: #222;
+  letter-spacing: 0;
+}
+.workspace-ui .instructor-main h2,
+.workspace-ui .iu-onboard h2,
+.workspace-ui .iu-auth h2 {
+  font:
+    400 25px/1.3 "Testimonial Garamond",
+    Georgia,
+    serif;
+}
+.workspace-ui .instructor-main h3 {
+  font:
+    600 15px/1.4 Arial,
+    sans-serif;
+  letter-spacing: 0.1px;
+}
+.workspace-ui .instructor-main h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #7f6757;
+  font-weight: 500;
+}
+.workspace-ui .instructor-main p,
+.workspace-ui .iu-onboard p,
+.workspace-ui .iu-auth p {
+  color: #79685e;
+  line-height: 1.65;
+}
+.workspace-ui .iu-lead {
+  font-size: 16px;
+  max-width: 820px;
+  margin: 10px 0 35px;
+}
+.workspace-ui .instructor-main .btn,
+.workspace-ui .iu-onboard .btn,
+.workspace-ui .iu-auth .btn,
+.iu-dialog .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #ff7410;
+  color: #fff;
+  border: 1px solid #ff7410;
+  border-radius: 12px;
+  padding: 12px 22px;
+  font:
+    600 14px/1.5 Arial,
+    sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: none;
+  letter-spacing: 0.4px;
+}
+.workspace-ui .instructor-main .btn.out,
+.workspace-ui .iu-onboard .btn.out,
+.iu-dialog .btn.out {
+  background: transparent;
+  color: #322c28;
+  border-color: #d9b39b;
+}
+.workspace-ui .instructor-main .btn.sm {
+  font-size: 11px;
+  padding: 7px 15px;
+  border-radius: 7px;
+}
+.workspace-ui .instructor-main button,
+.workspace-ui .iu-onboard button,
+.workspace-ui .iu-auth button {
+  cursor: pointer;
+  font-family: inherit;
+}
+.workspace-ui .instructor-main label,
+.workspace-ui .iu-onboard label,
+.workspace-ui .iu-auth label,
+.iu-dialog label {
+  display: block;
+  font:
+    600 14px/1.5 Arial,
+    sans-serif;
+  letter-spacing: 0.5px;
+  color: #654c3c;
+}
+.workspace-ui .instructor-main input,
+.workspace-ui .instructor-main select,
+.workspace-ui .instructor-main textarea,
+.workspace-ui .iu-onboard input,
+.workspace-ui .iu-onboard select,
+.workspace-ui .iu-onboard textarea,
+.workspace-ui .iu-auth input,
+.workspace-ui .iu-auth select,
+.iu-dialog input,
+.iu-dialog textarea,
+.iu-dialog select {
+  display: block;
+  width: 100%;
+  border: 1px solid #ead3c3;
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #faf7f5;
+  color: #252525;
+  box-sizing: border-box;
+  font:
+    400 15px/1.5 Arial,
+    sans-serif;
+  letter-spacing: 0;
+  margin-top: 7px;
+  min-width: 0;
+  max-width: 100%;
+}
+.workspace-ui .instructor-main textarea,
+.workspace-ui .iu-onboard textarea {
+  resize: vertical;
+}
+.workspace-ui .instructor-main input[type="checkbox"],
+.workspace-ui .instructor-main input[type="radio"],
+.workspace-ui .iu-auth input[type="checkbox"] {
+  width: 19px;
+  height: 19px;
+  accent-color: #ff7410;
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0;
+}
+.workspace-ui .iu-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 45px;
+}
+.workspace-ui .iu-heading p {
+  margin-top: 8px;
+  max-width: 650px;
+}
+.workspace-ui .iu-heading > div:last-child {
+  display: flex;
+  gap: 12px;
+}
+.workspace-ui .iu-panel {
+  padding: 28px;
+  border: 1px solid #ece3de;
+  border-radius: 25px;
+  background: #fff;
+  box-shadow: 0 5px 18px #3c2b1704;
+  min-width: 0;
+}
+.workspace-ui .iu-panel > h2 {
+  margin-bottom: 12px;
+}
+.workspace-ui .iu-panel.iu-flush {
+  padding: 0;
+  overflow: hidden;
+}
+.workspace-ui .iu-panel > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.workspace-ui .iu-panel.iu-flush > header {
+  padding: 22px 24px;
+  border-bottom: 1px solid #eee9e5;
+}
+.workspace-ui .iu-panel > header a {
+  font-size: 12px;
+  color: #ac4a00;
+  font-weight: 600;
+}
+.workspace-ui .iu-panel > header select {
+  width: auto;
+  margin: 0;
+  font-size: 12px;
+  padding: 7px 12px;
+}
+.workspace-ui .iu-panel-foot {
+  display: block;
+  padding: 18px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #987f6f;
+  background: #fcfaf8;
+  border-top: 1px solid #f0e9e4;
+}
+.workspace-ui .iu-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  margin: 40px 0 45px;
+}
+.workspace-ui .iu-stats.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.workspace-ui .iu-stat {
+  position: relative;
+  background: white;
+  border: 1px solid #eee7e1;
+  border-radius: 24px;
+  padding: 24px;
+  min-width: 0;
+  min-height: 150px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.workspace-ui .iu-stat > span {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  max-width: 75%;
+  color: #765c4c;
+}
+.workspace-ui .iu-stat > i {
+  position: absolute;
+  right: 18px;
+  top: 22px;
+  padding: 6px;
+  border-radius: 12px;
+  background: #fff0e5;
+  color: #ff7410;
+}
+.workspace-ui .iu-stat > b {
+  font:
+    600 33px/1.2 "Testimonial Garamond",
+    Georgia,
+    serif;
+  margin: 10px 0;
+}
+.workspace-ui .iu-stat small {
+  font-size: 10px;
+  color: #918578;
+  margin-top: auto;
+}
+.workspace-ui .iu-dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr);
+  gap: 24px;
+}
+.workspace-ui .iu-dashboard-grid > section > .iu-panel {
+  margin-bottom: 24px;
+}
+.workspace-ui .iu-dashboard-grid aside > h3 {
+  margin: 0 0 12px;
+}
+.workspace-ui .iu-quick-card {
+  display: block;
+  border: 1px solid #eee7e1;
+  border-radius: 24px;
+  padding: 25px;
+  background: white;
+  margin-bottom: 16px;
+  text-decoration: none;
+  color: #222;
+}
+.workspace-ui .iu-quick-card > svg {
+  color: #ad4d00;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 20px;
+}
+.workspace-ui .iu-quick-card h2 {
+  font:
+    600 19px Arial,
+    sans-serif;
+  margin: 0 0 10px;
+}
+.workspace-ui .iu-quick-card p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+.workspace-ui .iu-quick-card.dark {
+  background: #151515;
+  color: white;
+  border: 0;
+}
+.workspace-ui .iu-quick-card.dark svg {
+  color: #ff7410;
+}
+.workspace-ui .iu-quick-card.dark p {
+  color: #b2ada8;
+}
+.workspace-ui .iu-notice {
+  background: #fff6ec;
+  border-left: 2px solid #e2b084;
+  border-radius: 5px;
+  padding: 10px 14px;
+  color: #956238 !important;
+  font:
+    12px/1.6 Arial,
+    sans-serif;
+  margin: 16px 0;
+}
+.workspace-ui .iu-notice a {
+  text-decoration: underline;
+}
+.workspace-ui .iu-flush > .iu-notice {
+  margin: 12px 20px;
+}
+.workspace-ui .iu-review-summaries > div {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 20px 24px;
+}
+.workspace-ui .iu-review-summaries > div > div {
+  flex: 1;
+  min-width: 0;
+}
+.workspace-ui .iu-review-summaries small {
+  display: block;
+  font-size: 11px;
+  color: #8c7c71;
+}
+.workspace-ui .iu-review-summaries b {
+  font-size: 13px;
+}
+.workspace-ui .iu-table-wrap {
+  overflow-x: auto;
+}
+.workspace-ui .iu-table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 530px;
+}
+.workspace-ui .iu-table-wrap th {
+  font:
+    600 10px Arial,
+    sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 18px 22px;
+  background: #fcf9f7;
+  color: #9a8070;
+  border: 0;
+}
+.workspace-ui .iu-table-wrap td {
+  padding: 20px 22px;
+  font-size: 13px;
+  border: 0;
+  border-bottom: 1px solid #f0e7e1;
+  color: #695447;
+  vertical-align: middle;
+  line-height: 1.5;
+}
+.workspace-ui .iu-table-wrap td small {
+  display: block;
+  color: #a28c7c;
+  font-size: 10px;
+  margin-top: 5px;
+}
+.workspace-ui .iu-person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.workspace-ui .iu-person b {
+  font-size: 13px;
+}
+.workspace-ui .iu-progress {
+  height: 6px;
+  border-radius: 5px;
+  background: #eee8e3;
+  overflow: hidden;
+  min-width: 85px;
+}
+.workspace-ui .iu-progress i {
+  display: block;
+  height: 100%;
+  border-radius: 5px;
+  background: #ff7410;
+}
+.workspace-ui .iu-badge {
+  display: inline-block;
+  border-radius: 15px;
+  padding: 3px 9px;
+  background: #fff0de;
+  color: #ad5e09;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.workspace-ui .iu-badge.green {
+  background: #d5fae7;
+  color: #14936e;
+}
+.workspace-ui .iu-badge.gray {
+  background: #eee9e5;
+  color: #938074;
+}
+.workspace-ui .iu-activity {
+  padding: 18px 25px;
+}
+.workspace-ui .iu-activity > div {
+  display: flex;
+  gap: 15px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0ebe7;
+}
+.workspace-ui .iu-activity i {
+  color: #ac4e00;
+}
+.workspace-ui .iu-activity p {
+  font-size: 12px;
+  min-width: 0;
+}
+.workspace-ui .iu-activity strong {
+  color: #a84b00;
+}
+.workspace-ui .iu-activity small {
+  display: block;
+  color: #aa9281;
+  font-size: 10px;
+  margin-top: 8px;
+}
+.workspace-ui .iu-empty {
+  padding: 35px 24px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #9a887b;
+}
+.workspace-ui .iu-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.workspace-ui .iu-full {
+  grid-column: 1/-1;
+}
+.workspace-ui .iu-course-cards,
+.workspace-ui .iu-lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.workspace-ui .iu-card {
+  position: relative;
+  border: 1px solid #eee3db;
+  border-radius: 20px;
+  background: #fff;
+  overflow: hidden;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: #252525;
+}
+.workspace-ui .iu-card.selected {
+  border: 2px solid #ff7410;
+}
+.workspace-ui .iu-photo {
+  height: 190px;
+  position: relative;
+  overflow: hidden;
+  background: #272019 url("/assets/piano-hero.png") center/cover;
+}
+.workspace-ui .iu-card > div:not(.iu-photo) {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.workspace-ui .iu-card h2 {
+  font-size: 24px;
+}
+.workspace-ui .iu-card p {
+  font-size: 12px;
+  margin: 0;
+}
+.workspace-ui .iu-card .btn {
+  margin-top: 12px;
+}
+.workspace-ui .iu-card .iu-badge {
+  align-self: flex-start;
+}
+.workspace-ui .iu-card > .iu-badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+}
+.workspace-ui .iu-card-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #9d8879;
+  margin-top: auto;
+  padding-top: 14px;
+}
+.workspace-ui .iu-curriculum {
+  margin-top: 30px;
+}
+.workspace-ui .iu-curriculum > header {
+  margin-bottom: 28px;
+  align-items: flex-start;
+}
+.workspace-ui .iu-curriculum > header > div:last-child {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.workspace-ui .iu-curriculum header h2 {
+  font-size: 27px;
+}
+.workspace-ui .iu-curriculum header p {
+  font-size: 12px;
+  margin-top: 5px;
+}
+.workspace-ui .iu-module {
+  background: #faf7f5;
+  border: 1px solid #efe5df;
+  border-radius: 14px;
+  margin: 20px 0;
+  padding: 15px;
+}
+.workspace-ui .iu-module > header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.workspace-ui .iu-module h3 {
+  font:
+    400 23px "Testimonial Garamond",
+    Georgia,
+    serif;
+  flex: 1;
+}
+.workspace-ui .iu-icon-btn {
+  border: 0;
+  background: none;
+  padding: 6px;
+  color: #806e60;
+  line-height: 1;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.workspace-ui .iu-icon-btn svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+}
+.workspace-ui .iu-module-lesson {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #eee7e2;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 8px 0;
+  min-width: 0;
+}
+.workspace-ui .iu-module-lesson > span {
+  color: #ad6c3c;
+}
+.workspace-ui .iu-lesson-name {
+  border: 0;
+  background: none;
+  text-align: left;
+  font-size: 13px;
+  flex: 1;
+  color: #45382e;
+  min-width: 0;
+}
+.workspace-ui .iu-lesson-name small {
+  display: block;
+  font-size: 10px;
+  color: #a18c7b;
+  margin-top: 4px;
+}
+.workspace-ui .iu-add-lesson {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: none;
+  border: 1px dashed #d8c9bd;
+  border-radius: 10px;
+  color: #9b8370;
+  font-size: 12px;
+}
+.workspace-ui .iu-text-button {
+  border: 0;
+  background: none;
+  color: #b04b00;
+  padding: 8px 0;
+  font-size: 13px;
+  text-align: left;
+  font-weight: 600;
+}
+.workspace-ui .iu-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px 0;
+}
+.workspace-ui .iu-filters button {
+  border: 1px solid #e9ded6;
+  border-radius: 30px;
+  background: #f6f0eb;
+  color: #795d4a;
+  padding: 8px 18px;
+  font-size: 12px;
+}
+.workspace-ui .iu-filters button.active {
+  background: #ff7410;
+  color: white;
+  border-color: #ff7410;
+}
+.workspace-ui .iu-new-card {
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+  border: 1px dashed #e5c5ae;
+  min-height: 350px;
+  cursor: pointer;
+  background: #fbf7f3;
+}
+.workspace-ui .iu-new-card > span {
+  width: 45px;
+  height: 45px;
+  background: #ffe9d8;
+  border-radius: 50%;
+  font:
+    30px Arial,
+    sans-serif;
+  color: #ff7410;
+  margin-bottom: 20px;
+  display: grid;
+  place-items: center;
+}
+.workspace-ui .iu-list-footer {
+  border-top: 1px solid #e9d6c8;
+  margin-top: 45px;
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: #9c8370;
+  font-size: 12px;
+}
+.workspace-ui .iu-pagination {
+  display: flex;
+  gap: 10px;
+}
+.workspace-ui .iu-pagination button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #e8d9cf;
+  border-radius: 50%;
+  background: none;
+  color: #735443;
+}
+.workspace-ui .iu-pagination .active {
+  background: #ff7410;
+  color: #fff;
+  border-color: #ff7410;
+}
+.workspace-ui .iu-tip {
+  background: #faf0e8;
+  border: 1px solid #f1d6c3;
+  border-radius: 14px;
+  padding: 20px;
+  margin: 24px 0;
+  color: #b45b16;
+}
+.workspace-ui .iu-tip h3 {
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+.workspace-ui .iu-tip p {
+  font-size: 12px;
+  color: #9c6b46;
+}
+.workspace-ui .iu-eyebrow {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  color: #ff7410;
+  margin-bottom: 12px;
+}
+.workspace-ui .iu-large-title {
+  font-size: 60px !important;
+}
+.workspace-ui .iu-wizard-steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 0 0 70px;
+  position: relative;
+}
+.workspace-ui .iu-wizard-steps:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 17px;
+  height: 1px;
+  background: #e8dcd3;
+}
+.workspace-ui .iu-wizard-steps button {
+  position: relative;
+  z-index: 1;
+  background: #f8f4f2;
+  border: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #8d7563;
+  padding: 0 8px;
+}
+.workspace-ui .iu-wizard-steps span {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #e4c1aa;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  background: #fbf8f7;
+}
+.workspace-ui .iu-wizard-steps .active {
+  color: #ff7410;
+}
+.workspace-ui .iu-wizard-steps .active span {
+  background: #ff7410;
+  border-color: #ff7410;
+  color: #fff;
+}
+.workspace-ui .iu-course-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  margin-top: 45px;
+  padding: 45px;
+}
+.workspace-ui .iu-course-form label {
+  margin-bottom: 25px;
+  font-weight: 400;
+  color: #302a25;
+}
+.workspace-ui .iu-course-form small {
+  display: block;
+  font-size: 11px;
+  color: #97806d;
+  margin: -15px 0 22px;
+}
+.workspace-ui label.iu-image-drop {
+  height: 220px;
+  position: relative;
+  border: 2px dashed #e5bda2;
+  border-radius: 24px;
+  background: #f8f3ef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  overflow: hidden;
+  font-size: 14px;
+  cursor: pointer;
+}
+.workspace-ui .iu-image-drop small {
+  margin: 0;
+  font-size: 10px;
+}
+.workspace-ui .iu-image-drop input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.workspace-ui .iu-image-drop > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.workspace-ui .iu-image-drop > span {
+  position: relative;
+  z-index: 1;
+  padding: 5px 12px;
+  background: #fff9;
+  border-radius: 8px;
+}
+.workspace-ui .iu-wizard-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 45px;
+  padding-top: 40px;
+  border-top: 1px solid #e8cbb5;
+}
+.workspace-ui .iu-wizard-footer > a:first-child {
+  margin-right: auto;
+  font-size: 14px;
+  color: #837164;
+}
+.workspace-ui .iu-course-form .iu-wizard-footer {
+  margin-top: 0;
+}
+.workspace-ui .iu-pricing-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 24px;
+  margin-top: 45px;
+}
+.workspace-ui .iu-pricing-grid aside .iu-panel {
+  margin-bottom: 22px;
+}
+.workspace-ui .iu-orange {
+  color: #ff7410;
+}
+.workspace-ui .iu-pricing-grid h3 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
+.workspace-ui label.iu-access-choice {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 16px;
+  padding: 20px 16px;
+  margin-bottom: 16px;
+  border: 1px solid #e7bca0;
+  border-radius: 14px;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+.workspace-ui .iu-access-choice:has(input:checked) {
+  border-color: #ff7410;
+  background: #fffaf5;
+}
+.workspace-ui .iu-access-choice b {
+  display: block;
+  font-size: 14px;
+}
+.workspace-ui .iu-access-choice small {
+  display: block;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #947762;
+  margin-top: 5px;
+}
+.workspace-ui .iu-price-inputs {
+  margin-top: 40px;
+  padding: 20px;
+  background: #f7f2ee;
+  border-radius: 14px;
+}
+.workspace-ui .iu-price-inputs label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.workspace-ui label.iu-check {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.workspace-ui .iu-pricing-grid small {
+  font-size: 11px;
+  color: #9b8370;
+  line-height: 1.6;
+}
+.workspace-ui .iu-pricing-grid p {
+  font-size: 13px;
+  margin-top: 10px;
+}
+.workspace-ui .iu-review-course-heading {
+  text-align: center;
+  margin: 20px 0 45px;
+}
+.workspace-ui .iu-review-course-heading h1 {
+  font-size: 48px;
+}
+.workspace-ui .iu-course-review-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(250px, 1fr);
+  gap: 30px;
+}
+.workspace-ui .iu-course-review-grid .iu-photo {
+  height: 300px;
+}
+.workspace-ui .iu-review-price {
+  background: #a94b00;
+  color: #fff;
+}
+.workspace-ui .iu-review-price p {
+  color: #ffe3cb;
+}
+.workspace-ui .iu-course-review-grid aside .btn {
+  margin-top: 15px;
+}
+.workspace-ui .iu-video-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 1fr);
+  gap: 25px;
+}
+.workspace-ui .iu-video-drop {
+  border: 2px dashed #e4b99b;
+  border-radius: 32px;
+  background: #f8f2ee;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+  gap: 16px;
+}
+.workspace-ui .iu-video-drop p {
+  max-width: 350px;
+  font-size: 15px;
+}
+.workspace-ui .iu-square-icon {
+  background: #ffeadb;
+  border-radius: 16px;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff7410;
+}
+.workspace-ui .iu-file-button,
+.workspace-ui .iu-file-link {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: auto !important;
+}
+.workspace-ui .iu-file-button input[type="file"],
+.workspace-ui .iu-file-link input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.workspace-ui .iu-video-drop video {
+  max-width: 100%;
+  width: 100%;
+  border-radius: 20px;
+  background: #111;
+}
+.workspace-ui .iu-video-metadata {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 24px;
+  padding: 24px 10px;
+}
+.workspace-ui .iu-video-metadata > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border-right: 1px solid #e3c2aa;
+  font-size: 13px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.workspace-ui .iu-video-metadata > div:last-child {
+  border: 0;
+}
+.workspace-ui .iu-video-metadata small {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #9f8673;
+}
+.workspace-ui .iu-section-label {
+  margin: 28px 0 16px;
+}
+.workspace-ui .iu-video-details {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 32px;
+}
+.workspace-ui .iu-video-details h2 {
+  font-size: 28px;
+}
+.workspace-ui .iu-rule {
+  height: 1px;
+  background: #e4c5af;
+  margin: 10px 0;
+}
+.workspace-ui .iu-video-details > small {
+  font-size: 11px;
+  color: #a38b78;
+}
+.workspace-ui .iu-muted {
+  display: block;
+  font-size: 12px;
+  color: #a18976;
+  margin-top: 14px;
+}
+.workspace-ui .iu-video-grid .iu-two > .btn {
+  font-size: 12px;
+  min-height: 65px;
+  padding: 12px;
+}
+.workspace-ui .iu-resource-tabs {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  border-bottom: 1px solid #e5c5ae;
+  margin: 25px 0;
+  overflow-x: auto;
+}
+.workspace-ui .iu-resource-tabs button {
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  white-space: nowrap;
+  padding: 15px 10px;
+  color: #7c6554;
+  font-size: 14px;
+}
+.workspace-ui .iu-resource-tabs button.active {
+  color: #ff7410;
+  border-color: #ff7410;
+}
+.workspace-ui .iu-resource-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.workspace-ui .iu-resource-card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-height: 320px;
+  border-color: #e7bea2;
+}
+.workspace-ui .iu-resource-card > small {
+  font-size: 11px;
+  color: #a38b78;
+}
+.workspace-ui .iu-resource-card h2 {
+  font:
+    600 17px Arial,
+    sans-serif;
+  overflow-wrap: anywhere;
+}
+.workspace-ui .iu-resource-card p {
+  font-size: 13px;
+  font-style: italic;
+}
+.workspace-ui .iu-resource-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #e5c6af;
+  padding-top: 20px;
+  margin-top: auto;
+}
+.workspace-ui .iu-resource-drop {
+  min-height: 320px;
+  border: 2px dashed #e2b99b;
+  border-radius: 25px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 25px;
+  text-align: center;
+  color: #785b45;
+}
+.workspace-ui .iu-resource-drop p {
+  font-size: 12px;
+}
+.workspace-ui .iu-section-heading {
+  margin: 60px 0 22px;
+}
+.workspace-ui .iu-archive-support {
+  float: right;
+  margin-top: 40px;
+  border-radius: 30px !important;
+}
+.workspace-ui .iu-student-intro {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  margin-top: 25px;
+}
+.workspace-ui .iu-student-intro > .iu-avatar {
+  width: 80px;
+  height: 80px;
+  font-size: 36px;
+}
+.workspace-ui .iu-student-intro > .iu-badge {
+  margin-left: auto;
+}
+.workspace-ui .iu-student-lesson {
+  padding: 20px 0;
+  border-bottom: 1px solid #e9ded5;
+}
+.workspace-ui .iu-student-lesson p,
+.workspace-ui .iu-student-lesson small {
+  font-size: 11px;
+  color: #a18976;
+  display: block;
+  margin-top: 5px;
+}
+.workspace-ui .iu-student-lesson span {
+  display: block;
+  color: #b55a11;
+  font-size: 12px;
+  margin-top: 6px;
+}
+.workspace-ui #iu-student-note {
+  margin: 20px 0;
+}
+.workspace-ui .iu-review-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 1fr);
+  gap: 24px;
+  padding-left: 26px;
+  padding-right: 26px;
+  padding-top: 30px;
+}
+.workspace-ui .iu-review-title {
+  font-size: 32px !important;
+  font-style: italic !important;
+  margin-bottom: 10px;
+}
+.workspace-ui .iu-review-layout > section:first-child > p {
+  font-size: 13px;
+}
+.workspace-ui .iu-review-recording {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  margin: 22px 0 18px;
+  background: #161616;
+}
+.workspace-ui .iu-review-recording video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: contain;
+}
+.workspace-ui .iu-review-recording .iu-photo {
+  height: auto;
+  aspect-ratio: 16/9;
+}
+.workspace-ui .iu-review-recording > span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #fff;
+  font:
+    500 21px "Testimonial Garamond",
+    Georgia,
+    serif;
+  background: #0002;
+}
+.workspace-ui .iu-score {
+  margin-top: 24px;
+  padding: 20px;
+}
+.workspace-ui .iu-score header {
+  margin-bottom: 20px;
+}
+.workspace-ui .iu-score h2 {
+  font-size: 19px;
+  font-style: italic;
+}
+.workspace-ui .iu-score .iu-file-link {
+  color: #ff7410;
+  font-size: 13px;
+  font-weight: 400;
+}
+.workspace-ui .iu-score object {
+  width: 100%;
+  height: 300px;
+}
+.workspace-ui .iu-evaluation {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  align-self: start;
+}
+.workspace-ui .iu-evaluation > header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e7c9b3;
+}
+.workspace-ui .iu-evaluation > header h2 {
+  font-size: 19px;
+  font-style: italic;
+}
+.workspace-ui .iu-evaluation > .iu-resource-tabs {
+  margin: -10px -24px 0;
+  justify-content: space-around;
+  gap: 0;
+}
+.workspace-ui .iu-evaluation > .iu-resource-tabs button {
+  flex: 1;
+  font-size: 13px;
+}
+.workspace-ui .iu-feedback-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 8px;
+}
+.workspace-ui .iu-feedback-heading button {
+  background: none;
+  border: 0;
+  color: #ff7410;
+  font-size: 12px;
+}
+.workspace-ui .iu-timestamp-note {
+  background: #f7f2ef;
+  border: 1px solid #eee3da;
+  border-radius: 18px;
+  padding: 18px;
+  position: relative;
+}
+.workspace-ui .iu-timestamp-note > button:first-child {
+  border: 0;
+  border-radius: 5px;
+  background: #ffeadb;
+  color: #ff7410;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 600;
+}
+.workspace-ui .iu-timestamp-note p {
+  font-size: 13px;
+  color: #47382d;
+  margin-top: 10px;
+}
+.workspace-ui .iu-note-remove {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: 0;
+  color: #ac9b8e;
+  font-size: 17px;
+}
+.workspace-ui label.iu-rating {
+  font-size: 12px;
+  font-weight: 400;
+}
+.workspace-ui .iu-rating > span {
+  display: flex;
+  justify-content: space-between;
+}
+.workspace-ui .iu-rating output {
+  color: #ff7410;
+  font-weight: 600;
+}
+.workspace-ui .iu-rating input[type="range"] {
+  accent-color: #ff7410;
+  padding: 0;
+  border: 0;
+  background: none;
+  margin: 14px 0 4px;
+  height: 6px;
+  border-radius: 4px;
+}
+.workspace-ui .iu-grade {
+  background: #ff7410;
+  color: white;
+  border-radius: 24px;
+  padding: 24px;
+  margin: 15px 0 5px;
+}
+.workspace-ui .iu-grade small {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.workspace-ui .iu-grade h2 {
+  font-size: 29px;
+  font-style: italic;
+  margin-top: 10px;
+}
+.workspace-ui .iu-evaluation > label:last-of-type {
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.workspace-ui .iu-evaluation > label textarea {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 13px;
+  font-style: italic;
+}
+.workspace-ui .iu-evaluation > small {
+  text-align: center;
+  color: #b09a89;
+  font-size: 10px;
+}
+.workspace-ui .iu-review-confirm {
+  text-align: center;
+  padding-top: 60px;
+  max-width: 1000px;
+}
+.workspace-ui .iu-review-confirm > h1 {
+  font-size: 42px;
+  margin-top: 20px;
+}
+.workspace-ui .iu-review-confirm > p {
+  margin: 12px 0 40px;
+}
+.workspace-ui .iu-success {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ffead9;
+  color: #ff7410;
+  margin: 0 auto 25px;
+}
+.workspace-ui .iu-success svg {
+  width: 42px;
+  height: 42px;
+}
+.workspace-ui .iu-review-confirm-card {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  text-align: left;
+  margin: 45px 0;
+}
+.workspace-ui .iu-review-confirm-card h2 {
+  font-size: 24px;
+}
+.workspace-ui .iu-review-confirm-card .iu-person p {
+  font-size: 11px;
+  margin-top: 6px;
+}
+.workspace-ui .iu-review-confirm-card .iu-panel > h2 {
+  margin: 25px 0;
+}
+.workspace-ui .iu-review-scores {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+.workspace-ui .iu-review-scores span,
+.workspace-ui .iu-review-scores b {
+  font-size: 9px;
+}
+.workspace-ui .iu-review-scores .iu-progress {
+  margin: 8px 0;
+  min-width: 0;
+}
+.workspace-ui .iu-orange-panel {
+  background: #ff7410;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.workspace-ui .iu-orange-panel p {
+  color: #fff0e4;
+  font-size: 13px;
+}
+.workspace-ui .iu-review-confirm > .iu-two {
+  margin-top: 30px;
+  text-align: left;
+}
+.workspace-ui .iu-review-confirm > .iu-two a {
+  text-decoration: none;
+}
+.workspace-ui .iu-review-confirm > .iu-two p {
+  font-size: 12px;
+  margin-top: 12px;
+}
+.workspace-ui .iu-session-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+.workspace-ui .iu-session-cards article {
+  background: linear-gradient(140deg, #fff8f2, #fff);
+  border-color: #e3c5af;
+  display: flex;
+  flex-direction: column;
+}
+.workspace-ui .iu-session-cards h2 {
+  margin: 35px 0 14px;
+}
+.workspace-ui .iu-session-cards p {
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+.workspace-ui .iu-session-cards .iu-text-button {
+  margin-top: auto;
+}
+.workspace-ui .iu-session-row {
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #eee3da;
+}
+.workspace-ui .iu-session-row > div {
+  flex: 1;
+}
+.workspace-ui .iu-session-row small {
+  font-size: 11px;
+  color: #a58b77;
+}
+.workspace-ui .iu-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #eee5df;
+  padding: 45px 5%;
+  font-size: 12px;
+  color: #9d8b7f;
+  gap: 25px;
+}
+.workspace-ui .iu-footer nav {
+  position: static;
+  display: flex;
+  gap: 30px;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+.workspace-ui .iu-footer a {
+  color: #ab9c91;
+}
+.workspace-ui .iu-auth {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background: #fbf8f7;
+}
+.workspace-ui .iu-auth-photo {
+  position: relative;
+  min-height: 1024px;
+  background-position: 65% center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 65px 65px;
+  color: white;
+}
+.workspace-ui .iu-auth-photo > div {
+  margin-top: auto;
+}
+.workspace-ui .iu-auth-photo h2 {
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1.05;
+}
+.workspace-ui .iu-auth-photo p {
+  font:
+    italic 25px/1.5 "Testimonial Garamond",
+    Georgia,
+    serif;
+  color: #fff;
+  max-width: 470px;
+  margin-top: 16px;
+}
+.workspace-ui .iu-auth-photo > .iu-logo {
+  color: #fff;
+  font-size: 29px;
+  margin-left: -30px;
+}
+.workspace-ui .iu-auth-photo > .iu-logo b {
+  color: #ff7410;
+}
+.workspace-ui .iu-auth-photo .iu-glass {
+  border-radius: 16px;
+  padding: 45px;
+  background: #fffdf0cc;
+  backdrop-filter: blur(10px);
+  color: #8c3d00;
+}
+.workspace-ui .iu-auth-photo .iu-glass h2 {
+  font-size: 58px;
+}
+.workspace-ui .iu-auth-photo .iu-glass p {
+  font:
+    18px/1.6 Arial,
+    sans-serif;
+  color: #846d5a;
+}
+.workspace-ui .iu-auth-content {
+  padding: 100px 15% 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+.workspace-ui .iu-auth-content > .iu-logo {
+  margin-bottom: 65px;
+  font-size: 29px;
+}
+.workspace-ui .iu-auth-content h1 {
+  font-size: 60px;
+}
+.workspace-ui .iu-auth-content > p {
+  font-size: 18px;
+  color: #796c63;
+  margin: 8px 0 45px;
+}
+.workspace-ui .iu-join .iu-auth-content h1 {
+  font-size: 34px;
+}
+.workspace-ui .iu-join .iu-auth-content > p {
+  font-size: 16px;
+}
+.workspace-ui .iu-auth .auth-form {
+  width: 100%;
+  max-width: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.workspace-ui .iu-auth label {
+  font-size: 14px;
+}
+.workspace-ui .iu-login .iu-auth label {
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  font-size: 13px;
+}
+.workspace-ui .iu-auth input,
+.workspace-ui .iu-auth select {
+  font-size: 16px;
+  background: white;
+}
+.workspace-ui .iu-join input,
+.workspace-ui .iu-join select {
+  background: #f5f1ee;
+}
+.workspace-ui .iu-input-icon {
+  position: relative;
+  display: block;
+}
+.workspace-ui .iu-input-icon > svg {
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+}
+.workspace-ui .iu-login .iu-input-icon input {
+  padding-left: 46px;
+}
+.workspace-ui .iu-password input {
+  padding-right: 48px;
+}
+.workspace-ui .iu-password button {
+  position: absolute;
+  right: 12px;
+  top: 17px;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: #705541;
+}
+.workspace-ui .iu-password button svg {
+  width: 22px;
+  height: 22px;
+}
+.workspace-ui .iu-label-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.workspace-ui .iu-label-line a {
+  text-transform: none;
+  font-size: 13px;
+  color: #a54b00;
+}
+.workspace-ui .iu-auth .btn[type="submit"] {
+  margin-top: 16px;
+  min-height: 56px;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 12px #e7914830;
+}
+.workspace-ui .iu-login .btn[type="submit"] {
+  color: #4c260b;
+  font-weight: 400;
+}
+.workspace-ui .iu-or {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 11px;
+  color: #aaa;
+  margin: 26px 0;
+}
+.workspace-ui .iu-or:before,
+.workspace-ui .iu-or:after {
+  content: "";
+  height: 1px;
+  background: #eee7e1;
+  flex: 1;
+}
+.workspace-ui .iu-auth-content > .iu-auth-switch {
+  font-size: 15px;
+  text-align: center;
+  margin: 0;
+}
+.workspace-ui .iu-auth-switch a {
+  color: #a64a00;
+  font-weight: 600;
+  margin-left: 10px;
+}
+.workspace-ui .iu-auth .iu-approval-copy {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #a68d7a;
+  margin: 18px 0 25px;
+  text-align: center;
+}
+.workspace-ui .iu-auth footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 100px;
+  color: #aaa;
+  font-size: 11px;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+.workspace-ui .iu-auth footer a {
+  color: #aaa;
+}
+.workspace-ui .iu-join footer {
+  margin-top: 30px;
+  letter-spacing: 1.2px;
+}
+.workspace-ui .iu-form-error {
+  background: #fff1e9;
+  color: #a53d13 !important;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 13px;
+  margin: 0;
+}
+.workspace-ui .iu-form-error[hidden] {
+  display: none;
+}
+.workspace-ui .iu-onboard {
+  background: #fbf8f7;
+  min-height: 100vh;
+}
+.workspace-ui .iu-onboard-header {
+  min-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 5%;
+  border-bottom: 1px solid #eee3dc;
+  background: #fffdfb;
+  box-sizing: border-box;
+}
+.workspace-ui .iu-onboard-header > a:last-child {
+  color: #a74b00;
+}
+.workspace-ui .iu-onboard-heading {
+  text-align: center;
+  padding: 50px 20px 0;
+  max-width: 950px;
+  margin: auto;
+}
+.workspace-ui .iu-onboard-heading h1 {
+  font-size: 64px;
+  margin: 15px 0 8px;
+}
+.workspace-ui .iu-onboard-heading > p {
+  font-size: 18px;
+  color: #777;
+  line-height: 1.6;
+}
+.workspace-ui .iu-onboard-heading > span {
+  display: block;
+  color: #a54b00;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-top: 18px;
+}
+.workspace-ui .iu-mini-steps {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.workspace-ui .iu-mini-steps i {
+  width: 32px;
+  height: 4px;
+  border-radius: 5px;
+  background: #e6e0dc;
+}
+.workspace-ui .iu-mini-steps i:first-child {
+  background: #ad4f00;
+}
+.workspace-ui .iu-onboard-form {
+  max-width: 672px;
+  margin: 48px auto;
+  padding: 0 25px 0;
+  box-sizing: content-box;
+}
+.workspace-ui .iu-headshot-card {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #e9e3de;
+  border-radius: 25px;
+  padding: 25px;
+  margin-bottom: 45px;
+  box-shadow: 0 5px 14px #58432d04;
+}
+.workspace-ui .iu-headshot-card > .iu-avatar {
+  width: 125px;
+  height: 125px;
+  font-size: 45px;
+}
+.workspace-ui .iu-headshot-card h2 {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+.workspace-ui .iu-headshot-card p {
+  font-size: 15px;
+  color: #777;
+}
+.workspace-ui .iu-file-link {
+  color: #a84b00 !important;
+  font-size: 14px !important;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  margin-top: 15px;
+}
+.workspace-ui .iu-onboard-form > .iu-two {
+  margin-bottom: 45px;
+}
+.workspace-ui .iu-onboard-form > label {
+  margin-top: 35px;
+}
+.workspace-ui .iu-onboard-form > small {
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+}
+.workspace-ui .iu-add-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 5px;
+}
+.workspace-ui .iu-add-row input {
+  margin: 0;
+}
+.workspace-ui .iu-add-row > button {
+  flex-shrink: 0;
+  width: 55px;
+  border: 0;
+  border-radius: 12px;
+  background: #e4e1df;
+  font-size: 25px;
+  color: #777;
+}
+.workspace-ui .iu-achievements > div {
+  padding: 12px 16px;
+  margin-top: 8px;
+  border: 1px solid #eee3dc;
+  background: #f7f2ee;
+  border-radius: 12px;
+  color: #6c5849;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.workspace-ui .iu-achievements button {
+  border: 0;
+  background: none;
+  margin-left: auto;
+  color: #aaa;
+  font-size: 22px;
+}
+.workspace-ui .iu-onboard-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  margin-top: 65px;
+  padding-bottom: 0;
+}
+.workspace-ui .iu-onboard-actions .btn.out {
+  border-color: #222;
+}
+.workspace-ui .iu-onboard-actions .btn {
+  min-width: 125px;
+}
+.workspace-ui .iu-onboard-form #iu-save-status {
+  font-size: 12px;
+  color: #9d8b7e;
+  line-height: 1.5;
+  margin-top: 18px;
+}
+.workspace-ui .iu-onboard-form #iu-save-status[data-error="true"] {
+  color: #aa3f13;
+}
+.workspace-ui .iu-onboard .iu-footer {
+  margin-top: 48px;
+}
+.workspace-ui .iu-onboard-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 510px;
+  position: relative;
+  margin: 50px auto;
+}
+.workspace-ui .iu-onboard-stepper:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 20px;
+  height: 2px;
+  background: #e4bda2;
+}
+.workspace-ui .iu-onboard-stepper > span {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #e3bba0;
+  border-radius: 50%;
+  background: #fbf8f7;
+  color: #777;
+  font-size: 16px;
+  box-sizing: border-box;
+  box-shadow: 0 0 0 15px #fbf8f7;
+}
+.workspace-ui .iu-onboard-stepper > span.active {
+  border-color: #ff7410;
+  background: #ff7410;
+  color: white;
+}
+.workspace-ui .iu-philosophy {
+  margin-top: 25px;
+}
+.workspace-ui .iu-philosophy .iu-panel {
+  padding: 45px 24px 30px;
+}
+.workspace-ui .iu-philosophy .iu-panel > div {
+  margin-bottom: 30px;
+}
+.workspace-ui .iu-philosophy h2 {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+.workspace-ui .iu-philosophy p {
+  font-size: 15px;
+  color: #777;
+}
+.workspace-ui .iu-philosophy textarea {
+  font-size: 15px;
+}
+.workspace-ui .iu-philosophy .iu-onboard-actions {
+  width: min(1150px, calc(100vw - 70px));
+  max-width: none;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 140px;
+  border-top: 1px solid #eee4dc;
+  padding-top: 25px;
+}
+.workspace-ui .iu-philosophy .iu-onboard-actions > span {
+  font-size: 11px;
+  color: #999;
+  margin-left: auto;
+}
+.workspace-ui .iu-planning {
+  max-width: 800px;
+}
+.workspace-ui .iu-planning .iu-panel {
+  padding: 48px;
+}
+.workspace-ui .iu-planning label {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+}
+.workspace-ui .iu-planning .iu-panel > label {
+  margin-bottom: 45px;
+}
+.workspace-ui .iu-planning .iu-two {
+  margin-bottom: 45px;
+}
+.workspace-ui .iu-objectives {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: -38px;
+}
+.workspace-ui .iu-objectives > div {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.workspace-ui .iu-objectives input {
+  margin: 0;
+}
+.workspace-ui .iu-objectives button {
+  border: 0;
+  background: none;
+  color: #777;
+  padding: 5px;
+}
+.workspace-ui .iu-objectives svg {
+  width: 20px;
+  height: 20px;
+}
+.workspace-ui .iu-planning .iu-text-button {
+  margin-bottom: 38px;
+}
+.workspace-ui .iu-planning textarea {
+  text-transform: none;
+  font-weight: 400;
+}
+.workspace-ui .iu-planning .iu-onboard-actions {
+  border-top: 1px solid #eee4dc;
+  padding-top: 25px;
+  margin-top: 25px;
+}
+.workspace-ui .iu-tips {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 45px;
+}
+.workspace-ui .iu-tips > div {
+  background: #f3eeea;
+  border: 1px solid #eee5de;
+  border-radius: 14px;
+  padding: 20px;
+}
+.workspace-ui .iu-tips h3 {
+  font:
+    600 14px Arial,
+    sans-serif;
+  color: #302923;
+  margin-bottom: 10px;
+}
+.workspace-ui .iu-tips p {
+  font-size: 12px;
+  color: #8d7e72;
+  line-height: 1.5;
+}
+.workspace-ui .iu-onboard-complete {
+  text-align: center;
+  max-width: 700px;
+  margin: 100px auto;
+  padding: 0 25px;
+}
+.workspace-ui .iu-onboard-complete h1 {
+  font-size: 52px;
+}
+.workspace-ui .iu-onboard-complete p {
+  font-size: 17px;
+  margin: 25px 0 35px;
+}
+.workspace-ui .iu-onboard-complete > a {
+  display: block;
+  margin: 20px auto;
+  max-width: 300px;
+}
+.iu-dialog {
+  border: 1px solid #e3d4c8;
+  border-radius: 22px;
+  padding: 30px;
+  max-width: 560px;
+  width: calc(100% - 40px);
+  box-sizing: border-box;
+  background: #fffdfb;
+  color: #403329;
+  max-height: 90vh;
+}
+.iu-dialog::backdrop {
+  background: #23170b88;
+  backdrop-filter: blur(3px);
+}
+.iu-dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.iu-dialog header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.iu-dialog h2 {
+  font:
+    400 29px "Testimonial Garamond",
+    Georgia,
+    serif;
+}
+.iu-dialog header button {
+  border: 0;
+  background: none;
+  font-size: 28px;
+  color: #9f8b7a;
+  cursor: pointer;
+}
+.iu-dialog .iu-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.iu-dialog p,
+.iu-dialog small {
+  font:
+    12px/1.6 Arial,
+    sans-serif;
+  color: #9c8572;
+}
+.iu-dialog .iu-form-error {
+  color: #ad4213;
+  background: #fff0e5;
+  padding: 10px;
+}
+.iu-dialog .iu-form-error[hidden] {
+  display: none;
+}
+@media (max-width: 1200px) {
+  .workspace-ui .instructor-shell {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+  .workspace-ui .instructor-sidebar {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .workspace-ui .instructor-sidebar .iu-logo {
+    font-size: 18px;
+  }
+  .workspace-ui .iu-content {
+    padding: 40px 4%;
+  }
+  .workspace-ui .iu-stats {
+    gap: 14px;
+  }
+  .workspace-ui .iu-stat {
+    padding: 20px 16px;
+  }
+  .workspace-ui .iu-stat > i {
+    right: 12px;
+    width: 20px;
+    display: flex;
+  }
+  .workspace-ui .iu-stat > i .su-icon {
+    width: 18px;
+  }
+  .workspace-ui .iu-dashboard-grid {
+    grid-template-columns: minmax(0, 1.7fr) minmax(210px, 1fr);
+    gap: 20px;
+  }
+  .workspace-ui .iu-table-wrap td,
+  .workspace-ui .iu-table-wrap th {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .workspace-ui .iu-table-wrap table {
+    min-width: 490px;
+  }
+  .workspace-ui .iu-course-form {
+    gap: 28px;
+    padding: 30px;
+  }
+  .workspace-ui .iu-video-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 1fr);
+    gap: 20px;
+  }
+  .workspace-ui .iu-video-details {
+    padding: 25px;
+  }
+  .workspace-ui .iu-top {
+    padding: 12px 20px;
+  }
+  .workspace-ui .iu-top-actions {
+    gap: 15px;
+  }
+  .workspace-ui .iu-review-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr);
+    padding: 30px 22px;
+  }
+  .workspace-ui .iu-auth-content {
+    padding: 80px 12% 65px;
+  }
+  .workspace-ui .iu-auth-photo {
+    padding: 30px 40px 60px;
+  }
+  .workspace-ui .iu-auth-photo .iu-glass {
+    padding: 35px;
+  }
+  .workspace-ui .iu-auth-photo .iu-glass h2 {
+    font-size: 52px;
+  }
+  .workspace-ui .iu-auth-photo .iu-glass p {
+    font-size: 16px;
+  }
+  .workspace-ui .iu-wizard-steps {
+    gap: 8px;
+  }
+  .workspace-ui .iu-wizard-steps button {
+    font-size: 11px;
+    padding: 0 3px;
+  }
+  .workspace-ui .iu-resource-grid {
+    gap: 20px;
+  }
+}
+@media (max-width: 1000px) {
+  .workspace-ui .iu-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .workspace-ui .iu-dashboard-grid aside {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+  }
+  .workspace-ui .iu-dashboard-grid aside > h3 {
+    grid-column: 1/-1;
+  }
+  .workspace-ui .iu-dashboard-grid aside > .iu-panel {
+    grid-column: 1/-1;
+  }
+  .workspace-ui .iu-quick-card {
+    padding: 20px;
+    margin: 0;
+  }
+  .workspace-ui .iu-quick-card h2 {
+    font-size: 16px;
+  }
+  .workspace-ui .iu-quick-card p {
+    font-size: 11px;
+  }
+  .workspace-ui .iu-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .workspace-ui .iu-course-cards,
+  .workspace-ui .iu-lesson-grid,
+  .workspace-ui .iu-resource-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .workspace-ui .iu-video-grid {
+    grid-template-columns: 1fr;
+  }
+  .workspace-ui .iu-video-drop {
+    min-height: 300px;
+  }
+  .workspace-ui .iu-video-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .workspace-ui .iu-video-details > h2,
+  .workspace-ui .iu-video-details > .iu-rule,
+  .workspace-ui .iu-video-details > h4,
+  .workspace-ui .iu-video-details > .btn,
+  .workspace-ui .iu-video-details > small {
+    grid-column: 1/-1;
+  }
+  .workspace-ui .iu-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  .workspace-ui .iu-pricing-grid aside {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .workspace-ui .iu-course-form {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .workspace-ui .iu-wizard-footer {
+    flex-wrap: wrap;
+  }
+  .workspace-ui .iu-large-title {
+    font-size: 48px !important;
+  }
+  .workspace-ui .iu-review-layout {
+    grid-template-columns: 1fr;
+  }
+  .workspace-ui .iu-course-review-grid {
+    grid-template-columns: 1fr;
+  }
+  .workspace-ui .iu-session-cards {
+    gap: 15px;
+  }
+  .workspace-ui .iu-session-cards .iu-panel {
+    padding: 22px;
+  }
+  .workspace-ui .iu-top > .iu-search {
+    max-width: 320px;
+  }
+  .workspace-ui .iu-top .iu-top-actions > .iu-avatar {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .workspace-ui .instructor-shell {
+    display: block;
+  }
+  .workspace-ui .instructor-sidebar {
+    position: static;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #e5c2a9;
+    padding: 18px 14px;
+    gap: 12px;
+  }
+  .workspace-ui .instructor-sidebar .iu-logo {
+    justify-content: center;
+    font-size: 22px;
+  }
+  .workspace-ui .instructor-sidebar > p {
+    margin: 0;
+    text-align: center;
+    font-size: 10px;
+  }
+  .workspace-ui .instructor-sidebar nav {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 8px;
+  }
+  .workspace-ui .instructor-sidebar nav a {
+    font-size: 10px;
+    letter-spacing: 0;
+    padding: 8px;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 55px;
+    line-height: 1.4;
+    text-align: center;
+    flex: 1;
+  }
+  .workspace-ui .instructor-sidebar nav a .su-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .workspace-ui .iu-sidebar-bottom {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
+    gap: 12px;
+  }
+  .workspace-ui .iu-sidebar-bottom > .btn {
+    width: auto;
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+  .workspace-ui .iu-sidebar-divider,
+  .workspace-ui .iu-sidebar-bottom > .iu-instructor-id {
+    display: none !important;
+  }
+  .workspace-ui .iu-sidebar-bottom > a:not(.btn) {
+    font-size: 10px;
+    padding: 5px;
+    gap: 5px;
+  }
+  .workspace-ui .iu-sidebar-bottom > a .su-icon {
+    width: 16px;
+    height: 16px;
+  }
+  .workspace-ui .iu-signout {
+    font-size: 10px;
+    margin: 0;
+  }
+  .workspace-ui .iu-top {
+    padding: 12px 18px;
+    gap: 12px;
+    min-height: 65px;
+  }
+  .workspace-ui .iu-top h2 {
+    font-size: 20px;
+  }
+  .workspace-ui .iu-top-actions {
+    gap: 12px;
+  }
+  .workspace-ui .iu-top-actions > .btn {
+    font-size: 10px;
+    padding: 8px 12px;
+  }
+  .workspace-ui .iu-top-actions > a .su-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .workspace-ui .iu-top-actions > a[aria-label="Instructor settings"] {
+    display: none;
+  }
+  .workspace-ui .iu-top .iu-search {
+    max-width: none;
+    padding: 0 10px;
+  }
+  .workspace-ui .iu-top .iu-search input {
+    font-size: 11px;
+    padding: 8px 0;
+  }
+  .workspace-ui .iu-top .iu-search > .su-icon {
+    width: 16px;
+  }
+  .workspace-ui .iu-content {
+    padding: 30px 18px;
+  }
+  .workspace-ui .instructor-main h1 {
+    font-size: 32px;
+  }
+  .workspace-ui .iu-lead {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+  .workspace-ui .iu-stats,
+  .workspace-ui .iu-stats.three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+    margin: 28px 0;
+  }
+  .workspace-ui .iu-stat {
+    min-height: 135px;
+    padding: 20px 15px;
+  }
+  .workspace-ui .iu-stat > span {
+    font-size: 10px;
+    letter-spacing: 0.6px;
+  }
+  .workspace-ui .iu-stat > b {
+    font-size: 30px;
+  }
+  .workspace-ui .iu-stat small {
+    font-size: 9px;
+  }
+  .workspace-ui .iu-stat > i {
+    right: 10px;
+    top: 18px;
+    padding: 4px;
+  }
+  .workspace-ui .iu-stat > i svg {
+    width: 16px;
+    height: 16px;
+  }
+  .workspace-ui .iu-dashboard-grid aside {
+    grid-template-columns: 1fr;
+  }
+  .workspace-ui .iu-quick-card h2 {
+    font-size: 20px;
+  }
+  .workspace-ui .iu-quick-card p {
+    font-size: 13px;
+  }
+  .workspace-ui .iu-quick-card > svg {
+    margin-bottom: 15px;
+  }
+  .workspace-ui .iu-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+  .workspace-ui .iu-heading > div:last-child {
+    flex-wrap: wrap;
+  }
+  .workspace-ui .iu-panel {
+    padding: 22px;
+    border-radius: 22px;
+  }
+  .workspace-ui .iu-panel.iu-flush {
+    padding: 0;
+  }
+  .workspace-ui .iu-panel.iu-flush > header {
+    padding: 20px;
+  }
+  .workspace-ui .iu-table-wrap table {
+    min-width: 520px;
+  }
+  .workspace-ui .iu-course-cards,
+  .workspace-ui .iu-lesson-grid,
+  .workspace-ui .iu-resource-grid {
+    gap: 16px;
+  }
+  .workspace-ui .iu-photo {
+    height: 150px;
+  }
+  .workspace-ui .iu-card > div:not(.iu-photo) {
+    padding: 16px;
+  }
+  .workspace-ui .iu-card h2 {
+    font-size: 22px;
+  }
+  .workspace-ui .iu-card .btn {
+    font-size: 11px;
+    padding: 10px;
+  }
+  .workspace-ui .iu-card p {
+    font-size: 11px;
+  }
+  .workspace-ui .iu-curriculum > header {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .workspace-ui .iu-module {
+    padding: 12px;
+    margin: 16px 0;
+  }
+  .workspace-ui .iu-module-lesson {
+    gap: 7px;
+    padding: 10px;
+    flex-wrap: wrap;
+  }
+  .workspace-ui .iu-module-lesson > .iu-badge {
+    margin-left: 32px;
+  }
+  .workspace-ui .iu-module-lesson > .iu-lesson-name {
+    min-width: calc(100% - 40px);
+  }
+  .workspace-ui .iu-module h3 {
+    font-size: 22px;
+  }
+  .workspace-ui .iu-large-title {
+    font-size: 40px !important;
+  }
+  .workspace-ui .iu-wizard-steps {
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+  .workspace-ui .iu-wizard-steps button {
+    flex-direction: column;
+    gap: 6px;
+    font-size: 10px;
+    width: 25%;
+    text-align: center;
+    line-height: 1.3;
+    padding: 0;
+  }
+  .workspace-ui .iu-wizard-steps span {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+  }
+  .workspace-ui .iu-course-form {
+    padding: 25px 20px;
+    margin-top: 25px;
+    gap: 20px;
+  }
+  .workspace-ui .iu-course-form .iu-two {
+    gap: 15px;
+  }
+  .workspace-ui .iu-course-form label {
+    font-size: 13px;
+  }
+  .workspace-ui .iu-wizard-footer {
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 25px;
+    flex-wrap: wrap;
+  }
+  .workspace-ui .iu-wizard-footer > a:first-child {
+    flex-basis: 100%;
+  }
+  .workspace-ui .iu-wizard-footer > .btn {
+    flex: 1;
+    font-size: 12px;
+    padding: 12px 15px;
+  }
+  .workspace-ui .iu-pricing-grid {
+    margin-top: 25px;
+  }
+  .workspace-ui .iu-pricing-grid aside {
+    grid-template-columns: 1fr;
+  }
+  .workspace-ui .iu-price-inputs {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+  .workspace-ui .iu-pricing-grid .iu-full .iu-two {
+    grid-template-columns: 1fr;
+  }
+  .workspace-ui .iu-access-choice small {
+    font-size: 12px;
+  }
+  .workspace-ui .iu-video-drop {
+    padding: 25px;
+    min-height: 300px;
+    border-radius: 25px;
+  }
+  .workspace-ui .iu-video-drop p {
+    font-size: 14px;
+  }
+  .workspace-ui .iu-video-grid .iu-two {
+    gap: 15px;
+  }
+  .workspace-ui .iu-video-grid .iu-two .btn {
+    font-size: 11px;
+    padding: 10px;
+  }
+  .workspace-ui .iu-video-details {
+    display: flex;
+    padding: 25px;
+    gap: 20px;
+  }
+  .workspace-ui .iu-video-details label {
+    font-size: 13px;
+  }
+  .workspace-ui .iu-video-metadata {
+    padding: 20px 5px;
+  }
+  .workspace-ui .iu-video-metadata b {
+    font-size: 12px;
+  }
+  .workspace-ui .iu-video-metadata small {
+    font-size: 8px;
+  }
+  .workspace-ui .iu-resource-tabs {
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .workspace-ui .iu-resource-tabs button {
+    padding: 12px 5px;
+    font-size: 12px;
+  }
+  .workspace-ui .iu-resource-card {
+    padding: 20px;
+    min-height: 300px;
+  }
+  .workspace-ui .iu-resource-card h2 {
+    font-size: 15px;
+  }
+  .workspace-ui .iu-resource-card p {
+    font-size: 12px;
+  }
+  .workspace-ui .iu-resource-bottom {
+    gap: 10px;
+  }
+  .workspace-ui .iu-resource-bottom .btn {
+    font-size: 10px;
+    padding: 7px 10px;
+  }
+  .workspace-ui .iu-resource-bottom .iu-text-button {
+    font-size: 11px;
+  }
+  .workspace-ui .iu-resource-drop {
+    min-height: 300px;
+    padding: 20px;
+  }
+  .workspace-ui .iu-resource-drop h2 {
+    font-size: 23px;
+  }
+  .workspace-ui .iu-section-heading {
+    margin: 40px 0 20px;
+  }
+  .workspace-ui .iu-two {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .workspace-ui .iu-student-intro {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .workspace-ui .iu-student-intro > .iu-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+  .workspace-ui .iu-student-intro > .iu-badge {
+    margin: 0;
+  }
+  .workspace-ui .iu-student-intro h1 {
+    font-size: 29px;
+  }
+  .workspace-ui .iu-student-intro p {
+    font-size: 12px;
+  }
+  .workspace-ui .iu-review-layout {
+    padding: 25px 18px;
+  }
+  .workspace-ui .iu-review-title {
+    font-size: 29px !important;
+  }
+  .workspace-ui .iu-review-layout > section:first-child > p {
+    font-size: 12px;
+  }
+  .workspace-ui .iu-review-confirm {
+    text-align: center;
+  }
+  .workspace-ui .iu-review-confirm > h1 {
+    font-size: 34px;
+  }
+  .workspace-ui .iu-review-confirm-card {
+    grid-template-columns: 1fr;
+    margin: 30px 0;
+  }
+  .workspace-ui .iu-review-scores {
+    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .workspace-ui .iu-review-scores span,
+  .workspace-ui .iu-review-scores b {
+    font-size: 11px;
+  }
+  .workspace-ui .iu-session-cards {
+    grid-template-columns: 1fr;
+    margin-top: 25px;
+  }
+  .workspace-ui .iu-session-cards h2 {
+    margin-top: 22px;
+  }
+  .workspace-ui .iu-session-row {
+    padding: 20px;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .workspace-ui .iu-session-row > div {
+    min-width: 70%;
+  }
+  .workspace-ui .iu-footer {
+    padding: 30px 25px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 10px;
+    gap: 20px;
+  }
+  .workspace-ui .iu-footer nav {
+    gap: 25px;
+  }
+  .workspace-ui .iu-auth {
+    grid-template-columns: 1fr;
+  }
+  .workspace-ui .iu-auth-photo {
+    min-height: 300px;
+    padding: 30px;
+    background-position: 70% center;
+  }
+  .workspace-ui .iu-auth-photo h2 {
+    font-size: 40px;
+  }
+  .workspace-ui .iu-auth-photo p {
+    font-size: 20px;
+    max-width: 320px;
+  }
+  .workspace-ui .iu-auth-photo > .iu-logo {
+    margin: 0;
+    font-size: 24px;
+  }
+  .workspace-ui .iu-auth-photo .iu-glass {
+    padding: 25px;
+    margin-top: 45px;
+    max-width: 360px;
+  }
+  .workspace-ui .iu-auth-photo .iu-glass h2 {
+    font-size: 43px;
+  }
+  .workspace-ui .iu-auth-photo .iu-glass p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .workspace-ui .iu-auth-content {
+    padding: 40px 25px;
+  }
+  .workspace-ui .iu-auth-content > .iu-logo {
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+  .workspace-ui .iu-auth-content h1 {
+    font-size: 46px;
+  }
+  .workspace-ui .iu-auth-content > p {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+  .workspace-ui .iu-auth footer {
+    margin-top: 55px;
+    gap: 10px;
+  }
+  .workspace-ui .iu-join .iu-auth-content h1 {
+    font-size: 35px;
+  }
+  .workspace-ui .iu-auth .iu-auth-switch {
+    font-size: 13px;
+  }
+  .workspace-ui .iu-onboard-header {
+    min-height: 75px;
+    padding: 15px 25px;
+  }
+  .workspace-ui .iu-onboard-header .iu-logo {
+    font-size: 23px;
+  }
+  .workspace-ui .iu-onboard-heading {
+    padding: 35px 22px 0;
+  }
+  .workspace-ui .iu-onboard-heading h1 {
+    font-size: 44px;
+    margin-top: 15px;
+  }
+  .workspace-ui .iu-onboard-heading > p {
+    font-size: 15px;
+  }
+  .workspace-ui .iu-onboard-heading > p br {
+    display: none;
+  }
+  .workspace-ui .iu-onboard-form {
+    margin-top: 35px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .workspace-ui .iu-headshot-card {
+    padding: 22px;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+  .workspace-ui .iu-headshot-card > .iu-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+  }
+  .workspace-ui .iu-headshot-card h2 {
+    font-size: 24px;
+  }
+  .workspace-ui .iu-headshot-card p {
+    font-size: 12px;
+  }
+  .workspace-ui .iu-headshot-card .iu-file-link {
+    font-size: 12px !important;
+  }
+  .workspace-ui .iu-onboard-form > .iu-two {
+    grid-template-columns: 1fr;
+    margin-bottom: 30px;
+  }
+  .workspace-ui .iu-onboard-form > label {
+    margin-top: 28px;
+  }
+  .workspace-ui .iu-onboard-form .iu-onboard-actions {
+    flex-wrap: wrap;
+    margin-top: 40px;
+    gap: 20px;
+  }
+  .workspace-ui .iu-onboard-actions .btn {
+    font-size: 12px;
+    padding: 12px 15px;
+  }
+  .workspace-ui .iu-onboard .iu-footer {
+    margin-top: 35px;
+  }
+  .workspace-ui .iu-onboard-stepper {
+    max-width: 280px;
+    margin: 35px auto;
+  }
+  .workspace-ui .iu-philosophy .iu-panel {
+    padding: 30px 20px 5px;
+  }
+  .workspace-ui .iu-philosophy .iu-panel > div {
+    margin-bottom: 25px;
+  }
+  .workspace-ui .iu-philosophy h2 {
+    font-size: 25px;
+  }
+  .workspace-ui .iu-philosophy p {
+    font-size: 13px;
+  }
+  .workspace-ui .iu-philosophy .iu-onboard-actions {
+    position: static;
+    left: auto;
+    transform: none;
+    width: auto;
+    margin-top: 40px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .workspace-ui .iu-philosophy .iu-onboard-actions > span {
+    margin: 0;
+    text-align: center;
+  }
+  .workspace-ui .iu-philosophy .iu-onboard-actions .btn {
+    min-height: 45px;
+  }
+  .workspace-ui .iu-planning .iu-panel {
+    padding: 30px 20px;
+  }
+  .workspace-ui .iu-planning .iu-two {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+  .workspace-ui .iu-planning .iu-panel > label {
+    margin-bottom: 30px;
+  }
+  .workspace-ui .iu-planning label {
+    font-size: 12px;
+  }
+  .workspace-ui .iu-objectives {
+    margin-top: -22px;
+  }
+  .workspace-ui .iu-objectives > div {
+    gap: 8px;
+  }
+  .workspace-ui .iu-objectives input {
+    font-size: 13px;
+  }
+  .workspace-ui .iu-planning .iu-text-button {
+    margin-bottom: 25px;
+  }
+  .workspace-ui .iu-tips {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  .workspace-ui .iu-onboard-complete {
+    margin-top: 60px;
+  }
+  .workspace-ui .iu-onboard-complete h1 {
+    font-size: 40px;
+  }
+  .workspace-ui .iu-onboard-complete p {
+    font-size: 15px;
+  }
+  .iu-dialog {
+    padding: 25px;
+  }
+  .iu-dialog .iu-two {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 400px) {
+  .workspace-ui .iu-course-cards,
+  .workspace-ui .iu-lesson-grid,
+  .workspace-ui .iu-resource-grid {
+    grid-template-columns: 1fr;
+  }
+  .workspace-ui .iu-photo {
+    height: 200px;
+  }
+  .workspace-ui .iu-headshot-card {
+    flex-direction: column;
+  }
+  .workspace-ui .iu-stats {
+    gap: 10px;
+  }
+  .workspace-ui .iu-stat {
+    padding: 18px 12px;
+  }
+  .workspace-ui .iu-stat > i {
+    display: none;
+  }
+  .workspace-ui .iu-stat > span {
+    max-width: none;
+  }
+  .workspace-ui .iu-top-actions > a[aria-label="Notifications"] {
+    display: none;
+  }
+  .workspace-ui .iu-course-form .iu-two {
+    grid-template-columns: 1fr;
+  }
+}
+.workspace-ui .instructor-sidebar nav {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  align-self: stretch;
+  box-sizing: border-box;
+}
+.workspace-ui .iu-dashboard-grid > *,
+.workspace-ui .iu-two > *,
+.workspace-ui .iu-course-review-grid > *,
+.workspace-ui .iu-review-layout > *,
+.workspace-ui .iu-pricing-grid > *,
+.workspace-ui .iu-video-grid > * {
+  min-width: 0;
+}
+@media (max-width: 1000px) {
+  .workspace-ui .iu-dashboard-grid,
+  .workspace-ui .iu-review-layout,
+  .workspace-ui .iu-course-review-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.workspace-ui .instructor-main aside:not(.iu-tip):not(.iu-panel) {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  position: static;
+  width: auto;
+  height: auto;
+  min-height: 0;
+}
+.workspace-ui .instructor-sidebar .btn {
+  background: #ff7410;
+  color: #fff;
+  border: 1px solid #ff7410;
+  border-radius: 12px;
+  padding: 12px 15px;
+  font:
+    600 13px/1.5 Arial,
+    sans-serif;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.workspace-ui .iu-file-link,
+.workspace-ui .iu-file-button {
+  flex-direction: row !important;
+}
+.workspace-ui .instructor-main .iu-search input {
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 8px 0;
+}
+.workspace-ui .iu-logo b {
+  font-size: 30px;
+  color: #ff7410;
+}
+.workspace-ui .iu-curriculum > header > div:first-child {
+  min-width: 0;
+}
+.workspace-ui .iu-top h2 {
+  margin: 0;
+}
+.workspace-ui .iu-student-hero {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 40px;
+  margin-top: 30px;
+}
+.workspace-ui .iu-student-hero > .iu-avatar {
+  width: 145px;
+  height: 145px;
+  font-size: 60px;
+  box-shadow: 0 8px 12px #34251412;
+}
+.workspace-ui .iu-student-hero h1 {
+  font-size: 50px;
+}
+.workspace-ui .iu-student-hero p {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+.workspace-ui .iu-student-hero p svg {
+  width: 18px;
+  height: 18px;
+  color: #a18a78;
+}
+.workspace-ui .iu-student-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.workspace-ui .iu-student-actions .btn {
+  font-size: 12px;
+  padding: 11px 18px;
+}
+.workspace-ui .iu-student-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+  gap: 24px;
+  margin: 50px 0 25px;
+}
+.workspace-ui .iu-performance-history > header {
+  margin-bottom: 25px;
+}
+.workspace-ui .iu-performance-history > article {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 30px 0;
+}
+.workspace-ui .iu-performance-history .iu-photo {
+  width: 120px;
+  height: 85px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  filter: grayscale(1);
+}
+.workspace-ui .iu-performance-history article > div:not(.iu-photo) {
+  flex: 1;
+  min-width: 0;
+}
+.workspace-ui .iu-performance-history h3 {
+  font-size: 14px;
+}
+.workspace-ui .iu-performance-history p {
+  font-size: 11px;
+  margin: 7px 0;
+}
+.workspace-ui .iu-performance-history small {
+  font-size: 10px;
+  color: #a68b75;
+}
+.workspace-ui .iu-student-path > article {
+  padding: 25px 0;
+  border-bottom: 1px solid #eee4dd;
+  position: relative;
+}
+.workspace-ui .iu-student-path article > span {
+  color: #ff7410;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 10px;
+  font-weight: 600;
+}
+.workspace-ui .iu-student-path h3 {
+  margin: 8px 0;
+}
+.workspace-ui .iu-student-path .iu-progress {
+  margin: 12px 0;
+}
+.workspace-ui .iu-student-path small {
+  font-size: 10px;
+  color: #a48b77;
+}
+.workspace-ui .iu-student-path p {
+  font-size: 13px;
+}
+.workspace-ui .iu-student-bottom {
+  margin-top: 25px;
+}
+.workspace-ui .iu-student-bottom h4 {
+  margin-top: 25px;
+}
+.workspace-ui .iu-student-bottom > section > small {
+  font-size: 10px;
+  color: #ac9684;
+}
+.workspace-ui .iu-student-bottom > section > header > svg {
+  width: 22px;
+  height: 22px;
+  color: #ff7410;
+}
+.workspace-ui .iu-student-bottom label.iu-check {
+  font-size: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #efe5dc;
+}
+.workspace-ui .iu-student-insights {
+  background: linear-gradient(145deg, #302e2c, #543827);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.workspace-ui .iu-student-insights article {
+  padding: 18px;
+  border: 1px solid #ffffff15;
+  background: #ffffff0a;
+  border-radius: 14px;
+}
+.workspace-ui .iu-student-insights h3 {
+  color: #e7bda0;
+}
+.workspace-ui .iu-student-insights p {
+  color: #e2d2c6;
+  font-size: 13px;
+  margin: 12px 0;
+}
+.workspace-ui .iu-student-insights small {
+  color: #baa494;
+  font-size: 11px;
+}
+.workspace-ui .iu-student-insights .iu-two {
+  gap: 15px;
+  grid-template-columns: 1fr 1fr;
+}
+.workspace-ui .iu-student-insights .btn.out {
+  color: #fff;
+  border-color: #c4a38a;
+  margin-top: auto;
+}
+.workspace-ui .iu-faculty-welcome main {
+  max-width: 1140px;
+  margin: auto;
+  padding: 60px 28px;
+}
+.workspace-ui .iu-welcome-heading {
+  text-align: center;
+  max-width: 970px;
+  margin: auto;
+}
+.workspace-ui .iu-welcome-line {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 460px;
+  max-width: 80%;
+  margin: 0 auto 12px;
+  color: #ff7410;
+  font-size: 11px;
+}
+.workspace-ui .iu-welcome-line:before {
+  position: absolute;
+  content: "";
+  height: 1px;
+  background: #ff7410;
+  top: 8px;
+  left: 20px;
+  right: 20px;
+}
+.workspace-ui .iu-welcome-line span {
+  position: relative;
+  padding: 0 10px;
+  background: #fbf8f7;
+}
+.workspace-ui .iu-welcome-heading > small {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #aa8c78;
+  font-size: 11px;
+}
+.workspace-ui .iu-welcome-heading h1 {
+  font-size: 51px;
+  margin: 45px 0 15px;
+}
+.workspace-ui .iu-welcome-heading em {
+  color: #ff7410;
+}
+.workspace-ui .iu-welcome-heading p {
+  max-width: 650px;
+  margin: auto;
+  font-size: 16px;
+}
+.workspace-ui .iu-welcome-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 60px 0;
+}
+.workspace-ui .iu-welcome-cards a {
+  color: #272321;
+  text-decoration: none;
+  min-height: 220px;
+  background: #fcf8f5;
+}
+.workspace-ui .iu-welcome-cards h2 {
+  font-size: 25px;
+  margin: 25px 0 12px;
+}
+.workspace-ui .iu-welcome-cards p {
+  font-size: 13px;
+}
+.workspace-ui .iu-welcome-cards .iu-square-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+.workspace-ui .iu-welcome-enter {
+  text-align: center;
+  margin: 55px 0;
+}
+.workspace-ui .iu-welcome-enter p {
+  font-size: 11px;
+  color: #a38772;
+  margin-top: 18px;
+}
+.workspace-ui .iu-welcome-story {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin: 65px 0 25px;
+}
+.workspace-ui .iu-welcome-story .iu-photo {
+  height: 320px;
+  border-radius: 25px;
+}
+.workspace-ui .iu-welcome-story h2 {
+  font-size: 28px;
+}
+.workspace-ui .iu-welcome-story p {
+  font-size: 14px;
+  margin-top: 18px;
+}
+@media (max-width: 1200px) {
+  .workspace-ui .iu-student-hero {
+    padding: 30px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .workspace-ui .iu-student-hero > .iu-avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 45px;
+  }
+  .workspace-ui .iu-student-actions {
+    margin: 5px 0 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .workspace-ui .iu-student-detail-grid {
+    grid-template-columns: minmax(0, 1.7fr) minmax(220px, 1fr);
+  }
+  .workspace-ui .iu-performance-history > article {
+    flex-wrap: wrap;
+  }
+  .workspace-ui .iu-performance-history > article > .iu-badge {
+    margin-left: 0;
+  }
+  .workspace-ui .iu-performance-history .iu-photo {
+    width: 100px;
+    height: 75px;
+  }
+}
+@media (max-width: 760px) {
+  .workspace-ui .iu-student-hero {
+    padding: 25px 20px;
+    gap: 18px;
+  }
+  .workspace-ui .iu-student-hero > .iu-avatar {
+    width: 75px;
+    height: 75px;
+    font-size: 34px;
+  }
+  .workspace-ui .iu-student-hero h1 {
+    font-size: 34px;
+  }
+  .workspace-ui .iu-student-hero p {
+    font-size: 11px;
+    margin-top: 12px;
+  }
+  .workspace-ui .iu-student-hero .iu-student-actions {
+    gap: 12px;
+  }
+  .workspace-ui .iu-student-hero .btn {
+    font-size: 11px;
+    padding: 10px 16px;
+  }
+  .workspace-ui .iu-student-detail-grid {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 25px;
+  }
+  .workspace-ui .iu-performance-history h2,
+  .workspace-ui .iu-student-path h2 {
+    font-size: 26px;
+  }
+  .workspace-ui .iu-performance-history h3 {
+    font-size: 13px;
+  }
+  .workspace-ui .iu-performance-history > article {
+    gap: 14px;
+    margin: 24px 0;
+  }
+  .workspace-ui .iu-performance-history .iu-photo {
+    width: 85px;
+    height: 65px;
+  }
+  .workspace-ui .iu-student-bottom {
+    grid-template-columns: 1fr;
+  }
+  .workspace-ui .iu-student-insights {
+    gap: 20px;
+  }
+  .workspace-ui .iu-faculty-welcome main {
+    padding: 40px 20px;
+  }
+  .workspace-ui .iu-welcome-heading h1 {
+    font-size: 39px;
+    margin-top: 30px;
+  }
+  .workspace-ui .iu-welcome-heading p {
+    font-size: 14px;
+  }
+  .workspace-ui .iu-welcome-cards {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin: 35px 0;
+  }
+  .workspace-ui .iu-welcome-cards a {
+    min-height: 0;
+  }
+  .workspace-ui .iu-welcome-cards h2 {
+    margin: 18px 0 10px;
+  }
+  .workspace-ui .iu-welcome-enter {
+    margin: 35px 0;
+  }
+  .workspace-ui .iu-welcome-story {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 35px;
+  }
+  .workspace-ui .iu-welcome-story .iu-photo {
+    height: 230px;
+  }
+  .workspace-ui .iu-welcome-story p {
+    font-size: 13px;
+  }
+}
+.workspace-ui .instructor-main h1,
+.workspace-ui .instructor-main h2,
+.workspace-ui .iu-onboard h1 {
+  overflow-wrap: anywhere;
+}

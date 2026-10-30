@@ -19,7 +19,7 @@ test('only admins can manage catalogue images', async t => {
 });
 test('uploaded course, resource and featured images are publicly readable', async t => {
   const h = await boot(); t.after(h.close); const admin = await h.makeUser('images-admin@test.test', 'admin');
-  assert.equal((await h.api('GET', '/api/admin/images', { token: admin.token })).body.images.length, 34);
+  assert.equal((await h.api('GET', '/api/admin/images', { token: admin.token })).body.images.length, 36);
   for (const target of ['course/1','resource/1','feature/chopin','feature/anatomy','feature/drills']) {
     assert.equal((await upload(h, admin.token, target)).status, 200);
     const image = await h.api('GET', `/api/images/${target}`);

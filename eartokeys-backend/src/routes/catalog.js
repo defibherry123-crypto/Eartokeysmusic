@@ -8,20 +8,20 @@ const path = require('node:path');
 
 const courseView = (c) => ({
   id: c.id, slug: c.slug, title: c.title, level: c.level, hours: c.hours, students: c.students,
-  rating: c.rating, ratingCount: c.rating_count, description: c.description,
+  instructorName: c.instructor_name || 'Joshua Rapheal', rating: c.rating, ratingCount: c.rating_count, description: c.description,
   isFree: !!c.is_free,
   priceUsd: c.is_free ? 0 : PLANS[c.level].usd,
   priceNgn: c.is_free ? 0 : PLANS[c.level].ngn,
   ...(c.lesson_count !== undefined ? { lessonCount: c.lesson_count } : {}),
 });
 
-const LESSON_SQL = `SELECT l.*, c.level, c.is_free, c.title AS course_title, c.slug AS course_slug, c.published AS course_published
+const LESSON_SQL = `SELECT l.*, (SELECT json_extract(details,'$.description') FROM lesson_settings WHERE lesson_id=l.id) AS description, c.level, c.is_free, c.title AS course_title, c.slug AS course_slug, c.published AS course_published
                     FROM lessons l JOIN courses c ON c.id=l.course_id`;
 
 function lessonView(l, user, access, progress) {
   const d = canWatch(user, access, l);
   return {
-    id: l.id, title: l.title, module: l.module, position: l.position, durationSec: l.duration_sec,
+    id: l.id, title: l.title, description:l.description||'', module: l.module, position: l.position, durationSec: l.duration_sec,
     level: l.level, courseId: l.course_id, courseTitle: l.course_title, courseSlug: l.course_slug,
     freePreview: !!(l.free_preview || l.is_free), ready: !!l.file_name,
     locked: !d.ok, lockedReason: d.ok ? null : d.reason,
@@ -37,7 +37,7 @@ module.exports = (r) => {
 
   // ---------- public catalogue ----------
   r.get('/api/courses', { auth: 'none' }, ({ ctx, query }) => {
-    let rows = ctx.db.prepare(`SELECT c.*, (SELECT COUNT(*) FROM lessons l WHERE l.course_id=c.id AND l.published=1) AS lesson_count FROM courses c WHERE c.published=1`).all();
+    let rows = ctx.db.prepare(`SELECT c.*, (SELECT name FROM users WHERE id=c.created_by) AS instructor_name, (SELECT COUNT(*) FROM lessons l WHERE l.course_id=c.id AND l.published=1) AS lesson_count FROM courses c WHERE c.published=1`).all();
     if (query.level && LEVELS.includes(query.level)) rows = rows.filter((c) => c.level === query.level);
     const q = String(query.q || '').toLowerCase().trim();
     if (q) rows = rows.filter((c) => c.title.toLowerCase().includes(q) || c.description.toLowerCase().includes(q));
@@ -47,7 +47,7 @@ module.exports = (r) => {
   });
 
   r.get('/api/courses/:slug', { auth: 'optional' }, ({ ctx, params, user }) => {
-    const c = ctx.db.prepare('SELECT * FROM courses WHERE slug=? AND published=1').get(params.slug);
+    const c = ctx.db.prepare('SELECT c.*, (SELECT name FROM users WHERE id=c.created_by) AS instructor_name FROM courses c WHERE slug=? AND published=1').get(params.slug);
     if (!c) throw new HttpError(404, 'course_not_found', 'Course not found.');
     const access = user ? getAccess(ctx, user.id) : noAccess();
     const prog = new Map(user ? ctx.db.prepare('SELECT * FROM progress WHERE user_id=?').all(user.id).map((p) => [p.lesson_id, p]) : []);

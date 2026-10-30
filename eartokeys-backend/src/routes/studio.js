@@ -17,12 +17,12 @@ module.exports = (r) => {
     if (!l || !own(user, l)) throw new HttpError(404, 'lesson_not_found', 'Lesson not found.');
     return l;
   };
-  const lv = (l) => ({ id: l.id, courseId: l.course_id, module: l.module, position: l.position, title: l.title, durationSec: l.duration_sec, published: !!l.published, hasVideo: !!l.file_name, sizeBytes: l.size_bytes, freePreview: !!l.free_preview });
-  const cv = (c) => ({ id: c.id, slug: c.slug, title: c.title, level: c.level, hours: c.hours, description: c.description, published: !!c.published, isFree: !!c.is_free });
+  const lv = (l,ctx) => ({ id: l.id, courseId: l.course_id, module: l.module, position: l.position, title: l.title, durationSec: l.duration_sec, published: !!l.published, hasVideo: !!l.file_name, sizeBytes: l.size_bytes, freePreview: !!l.free_preview, settings: JSON.parse(ctx.db.prepare('SELECT details FROM lesson_settings WHERE lesson_id=?').get(l.id)?.details || '{}') });
+  const cv = (c,ctx) => ({ id: c.id, slug: c.slug, title: c.title, level: c.level, hours: c.hours, description: c.description, published: !!c.published, isFree: !!c.is_free, imageUrl: ctx.db.prepare("SELECT file_name FROM catalogue_images WHERE kind='course' AND target=?").get(String(c.id)) ? '/api/studio/courses/'+c.id+'/image' : null, settings: JSON.parse(ctx.db.prepare('SELECT details FROM course_settings WHERE course_id=?').get(c.id)?.details || '{}') });
 
   // ----- courses -----
   r.get('/api/studio/courses', { auth: 'instructor' }, ({ ctx, user }) =>
-    ({ courses: (user.role === 'admin' ? ctx.db.prepare('SELECT * FROM courses ORDER BY id').all() : ctx.db.prepare('SELECT * FROM courses WHERE created_by=? ORDER BY id').all(user.id)).map(cv) }));
+    ({ courses: (user.role === 'admin' ? ctx.db.prepare('SELECT * FROM courses ORDER BY id').all() : ctx.db.prepare('SELECT * FROM courses WHERE created_by=? ORDER BY id').all(user.id)).map(c=>cv(c,ctx)) }));
 
   r.post('/api/studio/courses', { auth: 'instructor' }, ({ ctx, user, body }) => {
     const title = text(body.title, 'title', { max: 120 });
@@ -30,30 +30,31 @@ module.exports = (r) => {
     if (ctx.db.prepare('SELECT 1 FROM courses WHERE slug=?').get(slug)) slug += '-' + Date.now().toString(36);
     const id = Number(ctx.db.prepare('INSERT INTO courses (slug,title,level,hours,description,is_free,published,created_by,created_at) VALUES (?,?,?,?,?,?,?,?,?)')
       .run(slug, title, oneOf(body.level, LEVELS, 'level'), int(body.hours ?? 0, 'hours', { max: 1000 }), text(body.description ?? '', 'description', { min: 0, max: 2000 }), user.role === 'admin' && body.isFree ? 1 : 0, 0, user.id, ctx.now()).lastInsertRowid);
-    return { course: cv(ctx.db.prepare('SELECT * FROM courses WHERE id=?').get(id)) };
+    return { course: cv(ctx.db.prepare('SELECT * FROM courses WHERE id=?').get(id),ctx) };
   });
 
   r.patch('/api/studio/courses/:id', { auth: 'instructor' }, ({ ctx, user, params, body }) => {
     const c = getCourse(ctx, user, params.id);
+    if(body.published){const settings=JSON.parse(ctx.db.prepare('SELECT details FROM course_settings WHERE course_id=?').get(c.id)?.details||'{}');if(settings.accessType==='one_time'||(settings.accessType==='free'&&!c.is_free))throw new HttpError(409,'access_review_required','This access proposal needs administrator review. Subscription courses can be published now.');if(settings.publishAt&&Date.parse(settings.publishAt)>ctx.now())throw new HttpError(409,'scheduled_draft','The release date is saved as a draft. Publish manually when it is due.');}
     ctx.db.prepare('UPDATE courses SET title=?, level=?, hours=?, description=?, published=? WHERE id=?').run(
       body.title !== undefined ? text(body.title, 'title', { max: 120 }) : c.title,
       body.level !== undefined ? oneOf(body.level, LEVELS, 'level') : c.level,
       body.hours !== undefined ? int(body.hours, 'hours', { max: 1000 }) : c.hours,
       body.description !== undefined ? text(body.description, 'description', { min: 0, max: 2000 }) : c.description,
       body.published !== undefined ? (body.published ? 1 : 0) : c.published, c.id);
-    return { course: cv(ctx.db.prepare('SELECT * FROM courses WHERE id=?').get(c.id)) };
+    return { course: cv(ctx.db.prepare('SELECT * FROM courses WHERE id=?').get(c.id),ctx) };
   });
 
   // ----- lessons / video studio -----
   r.get('/api/studio/lessons', { auth: 'instructor' }, ({ ctx, user }) =>
-    ({ lessons: (user.role === 'admin' ? ctx.db.prepare('SELECT * FROM lessons ORDER BY course_id, position, id').all() : ctx.db.prepare('SELECT * FROM lessons WHERE created_by=? ORDER BY course_id, position, id').all(user.id)).map(lv) }));
+    ({ lessons: (user.role === 'admin' ? ctx.db.prepare('SELECT * FROM lessons ORDER BY course_id, position, id').all() : ctx.db.prepare('SELECT * FROM lessons WHERE created_by=? ORDER BY course_id, position, id').all(user.id)).map(l=>lv(l,ctx)) }));
 
   r.post('/api/studio/lessons', { auth: 'instructor' }, ({ ctx, user, body }) => {
     const course = getCourse(ctx, user, body.courseId);
     const pos = ctx.db.prepare('SELECT COALESCE(MAX(position),0)+1 p FROM lessons WHERE course_id=?').get(course.id).p;
     const id = Number(ctx.db.prepare('INSERT INTO lessons (course_id,module,position,title,duration_sec,free_preview,published,created_by,created_at) VALUES (?,?,?,?,?,?,?,?,?)')
       .run(course.id, text(body.module ?? 'Module 1', 'module', { max: 120 }), pos, text(body.title, 'title', { max: 150 }), int(body.durationSec ?? 0, 'durationSec', { max: 36000 }), body.freePreview ? 1 : 0, 0, user.id, ctx.now()).lastInsertRowid);
-    return { lesson: lv(ctx.db.prepare('SELECT * FROM lessons WHERE id=?').get(id)) };
+    return { lesson: lv(ctx.db.prepare('SELECT * FROM lessons WHERE id=?').get(id),ctx) };
   });
 
   r.patch('/api/studio/lessons/:id', { auth: 'instructor' }, ({ ctx, user, params, body }) => {
@@ -66,7 +67,7 @@ module.exports = (r) => {
       body.position !== undefined ? int(body.position, 'position', { max: 10000 }) : l.position,
       body.durationSec !== undefined ? int(body.durationSec, 'durationSec', { max: 36000 }) : l.duration_sec,
       body.freePreview !== undefined ? (body.freePreview ? 1 : 0) : l.free_preview, publish, l.id);
-    return { lesson: lv(ctx.db.prepare('SELECT * FROM lessons WHERE id=?').get(l.id)) };
+    return { lesson: lv(ctx.db.prepare('SELECT * FROM lessons WHERE id=?').get(l.id),ctx) };
   });
 
   // Raw video body (Content-Type: video/mp4) streamed to disk. Works with fetch/XHR and large files.
@@ -74,7 +75,7 @@ module.exports = (r) => {
     const l = getLesson(ctx, user, params.id);
     const f = await saveUpload(ctx, req, { id: l.id, dir: lessonsDir(ctx), types: VIDEO_TYPES, max: ctx.config.maxUploadBytes, oldFile: l.file_name });
     ctx.db.prepare('UPDATE lessons SET file_name=?, mime=?, size_bytes=? WHERE id=?').run(f.fileName, f.mime, f.size, l.id);
-    return { lesson: lv(ctx.db.prepare('SELECT * FROM lessons WHERE id=?').get(l.id)) };
+    return { lesson: lv(ctx.db.prepare('SELECT * FROM lessons WHERE id=?').get(l.id),ctx) };
   });
 
   r.delete('/api/studio/lessons/:id', { auth: 'instructor' }, async ({ ctx, user, params }) => {

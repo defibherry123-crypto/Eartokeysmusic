@@ -1,6 +1,6 @@
 # Client progress preview on Vercel
 
-This repository is configured to publish a static client preview on Vercel. Public pages and a labelled student tour work without a backend. Real accounts, payments, emails, and uploads continue to require the Node application with persistent database/file storage; they are not deployed by this preview configuration.
+This repository is configured to publish a static client preview on Vercel. Public pages and labelled student/instructor tours work without a backend. Real accounts, payments, emails, and uploads continue to require the Node application with persistent database/file storage; they are not deployed by this preview configuration.
 
 ## Deploy the existing GitHub repository
 
@@ -20,7 +20,7 @@ Settings, if the dashboard asks for them:
 | Output Directory | `dist` |
 | Environment variables | None for the design preview |
 
-Share the resulting production `https://…vercel.app` address with the client. **Student Preview** in the top banner opens the student area without asking the client to create an account. **Sign In Design** and **Sign Up Design** show those layouts. The clip in the lesson player is labelled as a sample. Booking/community interactions are local previews. Profile edits and progress in the preview are temporary browser state, not server records. Account/password forms and payment/upload actions explain that a backend is required rather than sending data to a live service.
+Share the resulting production `https://…vercel.app` address with the client. **Student Preview** and **Instructor Preview** in the top banner open their respective workspaces without asking the client to create an account. Instructor onboarding, course-builder stages, sample roster, review screens, and Resource Manager can be browsed from that instructor tour. **Sign In Design** and **Sign Up Design** show those layouts. The clip in the lesson player is labelled as a sample. Booking/community interactions are local previews. Profile edits and progress in the preview are temporary browser state, not server records. Account/password forms and payment/upload actions explain that a backend is required rather than sending data to a live service.
 
 Importing this existing repository connects Vercel's Git integration: subsequent pushes to `main` rebuild the client URL automatically. For local website development, keep using `npm start` in `eartokeys-backend`; that continues to use the real backend and is unaffected by preview mode.
 
