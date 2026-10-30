@@ -6,7 +6,7 @@ const { saveUpload, sendFile } = require('../media');
 const { HANDLED } = require('../http');
 
 const { TESTIMONIALS, videoUrl } = require('../testimonials');
-const FEATURES = { chopin: 'Chopin’s Complete Nocturnes', anatomy: 'The Anatomy of a Grand Piano', drills: 'Daily Finger Independence', 'about-piano': 'About page piano', 'team-joshua': 'Joshua Rapheal — team portrait', 'team-elina': 'Elina Chris — team portrait', 'team-marcus': 'Marcus Ubon — team portrait', 'team-unwana': 'Unwana Berry — team portrait', 'founder-banner': 'Founder page banner', 'founder-practice': 'Founder page piano practice', 'founder-studio': 'Founder page teaching studio', ...TESTIMONIALS };
+const FEATURES = { chopin: 'Chopin’s Complete Nocturnes', anatomy: 'The Anatomy of a Grand Piano', drills: 'Daily Finger Independence', 'about-piano': 'About page piano', 'team-joshua': 'Joshua Rapheal — team portrait', 'team-elina': 'Elina Chris — team portrait', 'team-marcus': 'Marcus Ubon — team portrait', 'team-unwana': 'Unwana Berry — team portrait', 'founder-banner': 'Founder page banner', 'founder-practice': 'Founder page piano practice', 'founder-studio': 'Founder page teaching studio', 'terms-piano': 'Terms page piano', ...TESTIMONIALS };
 const TYPES = {
   'image/png': { ext: 'png', ok: b => b.subarray(0, 8).equals(Buffer.from('89504e470d0a1a0a', 'hex')) },
   'image/jpeg': { ext: 'jpg', ok: b => b[0] === 0xff && b[1] === 0xd8 && b[2] === 0xff },

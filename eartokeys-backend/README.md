@@ -39,6 +39,8 @@ Still prototype-only (kept in the browser's localStorage, no backend yet): Commu
 
 Sign in as an admin and open **Product images** in the dashboard (`#/admin/images`). Upload or replace JPG, PNG, or WebP pictures up to 5 MB for course covers, resource cards, and the three featured library panels. The gallery shows previews and a remove option. Uploaded course covers appear on the landing page, course listing, and course details; resource and featured images appear in the library after refreshing or navigating to it.
 
+**Legal pages:** choose this filter in Product images to upload the piano image for the Terms of Use page (`#/terms`).
+
 **Founder page:** choose this filter in Product images to upload the wide founder banner, piano-practice image, and teaching-studio image used at `#/founder`. These are separate slots so changing the banner does not overwrite the team portrait. The existing local `public/assets/founder.png` is a fallback when a banner has not been uploaded.
 
 **About & team:** choose this filter in Product images to upload the About page piano picture and portraits for Joshua Rapheal, Elina Chris, Marcus Ubon, and Unwana Berry. Portraits are displayed in black and white to match the About design. Until pictures are uploaded, team cards show initials; the founder can also use the existing local `public/assets/founder.png` as a fallback.

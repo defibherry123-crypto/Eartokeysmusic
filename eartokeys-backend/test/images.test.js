@@ -19,7 +19,7 @@ test('only admins can manage catalogue images', async t => {
 });
 test('uploaded course, resource and featured images are publicly readable', async t => {
   const h = await boot(); t.after(h.close); const admin = await h.makeUser('images-admin@test.test', 'admin');
-  assert.equal((await h.api('GET', '/api/admin/images', { token: admin.token })).body.images.length, 26);
+  assert.equal((await h.api('GET', '/api/admin/images', { token: admin.token })).body.images.length, 27);
   for (const target of ['course/1','resource/1','feature/chopin','feature/anatomy','feature/drills']) {
     assert.equal((await upload(h, admin.token, target)).status, 200);
     const image = await h.api('GET', `/api/images/${target}`);
@@ -85,4 +85,14 @@ test('Founder page banner and both gallery images have separate admin-managed sl
   const images = (await h.api('GET', '/api/images')).body.images;
   assert.equal(images.length, 3);
   assert.deepEqual(images.map(x => x.target).sort(), keys.sort());
+});
+
+test('the Terms page piano image can be uploaded and read through its legal-page slot', async t => {
+  const h = await boot(); t.after(h.close);
+  const admin = await h.makeUser('terms-images@test.test', 'admin');
+  assert.equal((await upload(h, admin.token, 'feature/terms-piano')).status, 200);
+  const images = (await h.api('GET', '/api/images')).body.images;
+  assert.equal(images.length, 1);
+  assert.equal(images[0].target, 'terms-piano');
+  assert.equal((await h.api('GET', images[0].imageUrl)).status, 200);
 });
