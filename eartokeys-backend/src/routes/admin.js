@@ -67,6 +67,8 @@ module.exports = (r) => {
       .map((p) => ({ reference: p.reference, email: p.email, plan: p.plan, billing: p.billing, amount: p.amount_minor / 100, currency: p.currency, status: p.status, failureReason: p.failure_reason, paidAt: p.paid_at, createdAt: p.created_at })),
   }));
 
+  r.get('/api/admin/newsletter', A, ({ ctx }) => ({ subscribers: ctx.db.prepare('SELECT email, created_at AS createdAt FROM newsletter_subscribers ORDER BY created_at DESC, email LIMIT 200').all() }));
+
   r.get('/api/admin/support', A, ({ ctx }) => ({ messages: ctx.db.prepare('SELECT * FROM support_messages ORDER BY id DESC LIMIT 200').all() }));
   r.post('/api/admin/support/:id/close', A, ({ ctx, params }) => { ctx.db.prepare("UPDATE support_messages SET status='closed' WHERE id=?").run(int(params.id, 'id', { min: 1 })); return { ok: true }; });
 

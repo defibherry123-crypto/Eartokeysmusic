@@ -31,9 +31,15 @@ Sign up with a brand-new email to test verification: the 6-digit code is printed
 
 Sign up / sign in / email code / reset password, skill level, plans and prices, checkout and the "Securing your seat" screen, subscription banner (active, grace, expired), course catalogue and course pages, lesson library, the real video player (signed link, seeking, email watermark, saved position), progress, resource downloads, support form, settings and change password. Instructor studio: create courses, upload lesson videos, publish. Admin: overview, users (grant access, approve instructors, disable), videos, payments, resources, support inbox.
 
-Still prototype-only (kept in the browser's localStorage, no backend yet): Community, Book a session, Performance reviews, student uploads, instructor student roster, blog, newsletter.
+Still prototype-only (kept in the browser's localStorage, no backend yet): Community, Book a session, Performance reviews, student uploads, instructor student roster, blog articles.
 
 ---
+
+## Blog and newsletter
+
+The Blog page (`#/blog`) keeps the original featured masterclass, student highlight, live-session panel, article category filters, and newsletter form. Original Blog pictures can be uploaded through **Product images > Blog** in the admin dashboard.
+
+Newsletter signups are validated, normalized, and stored once per email in SQLite. **Newsletter** in the admin dashboard lists the latest 200 subscribers; only admins can access this list. Signup requests are rate-limited. This records opt-ins; it does not send newsletter emails or connect an email delivery provider. Blog article bodies and live-session scheduling remain prototype content. The reminder button explains when a session date has not been configured instead of claiming a reminder was set.
 
 ## Admin image uploads
 

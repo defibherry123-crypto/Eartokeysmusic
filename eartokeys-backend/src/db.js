@@ -143,6 +143,10 @@ CREATE TABLE IF NOT EXISTS catalogue_images (
   size_bytes INTEGER NOT NULL,
   PRIMARY KEY (kind, target)
 );
+CREATE TABLE IF NOT EXISTS newsletter_subscribers (
+  email TEXT PRIMARY KEY COLLATE NOCASE,
+  created_at INTEGER NOT NULL
+);
 CREATE TABLE IF NOT EXISTS support_messages (
   id INTEGER PRIMARY KEY,
   user_id INTEGER REFERENCES users(id),

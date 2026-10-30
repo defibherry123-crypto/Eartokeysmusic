@@ -163,6 +163,14 @@ module.exports = (r) => {
     return HANDLED;
   });
 
+  // ---------- newsletter opt-ins ----------
+  r.post('/api/newsletter', { auth: 'none', limit: { name: 'newsletter', max: 10, windowMs: 3600000 } }, ({ ctx, body }) => {
+    const { email } = require('../util');
+    const address = email(body.email);
+    ctx.db.prepare('INSERT INTO newsletter_subscribers (email,created_at) VALUES (?,?) ON CONFLICT(email) DO NOTHING').run(address, ctx.now());
+    return { ok: true };
+  });
+
   // ---------- support form ----------
   r.post('/api/support', { auth: 'optional', limit: { name: 'support', max: 5, windowMs: 3600000 } }, ({ ctx, user, body }) => {
     const { email } = require('../util');
