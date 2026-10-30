@@ -1,0 +1,45 @@
+.client-preview-banner {
+  background: #3d281d;
+  color: #fff;
+  padding: 10px 24px;
+  display: flex;
+  gap: 12px 25px;
+  align-items: center;
+  justify-content: space-between;
+  font:
+    12px/1.5 Arial,
+    sans-serif;
+  position: relative;
+  z-index: 100;
+}
+.client-preview-banner nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+}
+.client-preview-banner a {
+  color: #ffe4ca;
+  text-decoration: none;
+}
+.client-preview-banner button {
+  border: 1px solid #ffbd85;
+  border-radius: 6px;
+  background: #ff7410;
+  color: #fff;
+  font:
+    600 12px Arial,
+    sans-serif;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+@media (max-width: 760px) {
+  .client-preview-banner {
+    padding: 12px 16px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .client-preview-banner nav {
+    gap: 10px 14px;
+  }
+}
